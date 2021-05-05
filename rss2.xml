@@ -34,5 +34,27 @@
       
     </item>
     
+    <item>
+      <title>关于Hexo博客NEXT主题(Gmini)站点图标不显示，显示错误的解决办法</title>
+      <link>http://example.com/2020/05/05/First/</link>
+      <guid>http://example.com/2020/05/05/First/</guid>
+      <pubDate>Tue, 05 May 2020 12:30:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h1 id=&quot;关于Hexo博客NEXT主题-Gmini-站点图标不显示，显示错误的解决办法&quot;&gt;&lt;a href=&quot;#关于Hexo博客NEXT主题-Gmini-站点图标不显示，显示错误的解决办法&quot; class=&quot;headerlink&quot; title=&quot;关于Hexo博客NEXT主题(G</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h1 id="关于Hexo博客NEXT主题-Gmini-站点图标不显示，显示错误的解决办法"><a href="#关于Hexo博客NEXT主题-Gmini-站点图标不显示，显示错误的解决办法" class="headerlink" title="关于Hexo博客NEXT主题(Gmini)站点图标不显示，显示错误的解决办法"></a>关于Hexo博客NEXT主题(Gmini)站点图标不显示，显示错误的解决办法</h1><p><strong>&emsp;&emsp;最近闲着没事自己利用Hexo和Github搭了个博客，但是在NEXT(Gmini)主题优化时，出了很多错误，图标不显示或者显示错误就是其中一个，现在为其写个博客记录解决办法，同时希望帮到屏幕前的你，也希望提醒自己犯过的错别再犯了，插个眼。</strong><br>##图标显示问号<br><strong>&emsp;&emsp;解决办法：修改主题配置文件_config.yml下的menu属性中’/‘与’||’中间空格删除。</strong><br><strong>&emsp;&emsp;&emsp;&emsp;<img src="img/tp1.png" alt="/img/tp1.png"></strong><br>##图标不显示<br><strong>&emsp;&emsp;解决办法：修改主题配置文件_config.yml下的menu属性中‘||’后是图标链接，但是要加入 ‘fa fa-’值，如‘home：/||fa fa-home’</strong><br><strong>&emsp;&emsp;&emsp;&emsp;<img src="img/tp1.png" alt="/img/tp1.png"></strong><br><em>！！水博客第一天</em></p>]]></content:encoded>
+      
+      
+      
+      
+      <comments>http://example.com/2020/05/05/First/#disqus_thread</comments>
+      
+    </item>
+    
   </channel>
 </rss>
