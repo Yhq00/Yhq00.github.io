@@ -1177,7 +1177,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #5c14ed;
+  background: #88c8e7;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2617,14 +2617,14 @@ ul.breadcrumb li + li:last-child {
   }
 }
 body {
-  background: url("/images/background.jpg");
+  background: url("/images/xk.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: 50% 50%;
 }
 body {
-  background-image: url("/images/background.jpg");
+  background-image: url("/images/xk.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: 50% 50%;
