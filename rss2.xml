@@ -9,8 +9,45 @@
     <atom:link href="http://example.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>在天堂和地域之间，没有我选择的权利，只有别人选择我的命运！</description>
-    <pubDate>Tue, 04 May 2021 04:07:47 GMT</pubDate>
+    <pubDate>Mon, 13 Mar 2023 11:50:20 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>JavaScript输出</title>
+      <link>http://example.com/2021/05/04/JavaScript%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B001/</link>
+      <guid>http://example.com/2021/05/04/JavaScript%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B001/</guid>
+      <pubDate>Tue, 04 May 2021 04:57:46 GMT</pubDate>
+      
+        
+        
+      <description>&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;JavaScript输出&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;JavaScript不提供任何内建的打印或显示函数。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;JavaScript 显示方式&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使用Win</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<hr><p><strong>JavaScript输出</strong></p><hr><p>JavaScript不提供任何内建的打印或显示函数。</p><hr><p><strong>JavaScript 显示方式</strong></p><ul><li>使用Window.alert( ) 写入警告框</li><li>使用document.write( )写入HTML输出</li><li>使用innerHTML 写入HTML元素</li><li>使用console.log()写入浏览器控制台</li></ul><p><strong>实例：</strong></p><ol><li><p>使用Window.alert( ) 写入警告框</p><p><img src="/2021/05/04/JavaScript%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B001/.%5Cimg%5CJS1.png" alt="JS1"></p></li></ol><p>2.使用document.write( )写入HTML输出</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>我的第一张网页<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>我的第一个段落。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;document.write(5 + 6)&quot;</span>&gt;</span>试一试<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><p>点击前：</p><p><img src="/2021/05/04/JavaScript%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B001/js2-1.png" alt="js2-1"></p><p>点击后：</p><p><img src="/2021/05/04/JavaScript%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B001/js2-2.png" alt="js2-2"></p><p><strong>注意：</strong>在 HTML 文档完全加载后使用 <code>document.write()</code> 将<em>删除所有已有的 HTML</em></p><p><strong>提示：</strong><code>document.write()</code> 方法仅用于测试</p><p>3.使用innerHTML 写入HTML元素</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>我的第一张网页<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>我的第一个段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;demo&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"> <span class="built_in">document</span>.getElementById(<span class="string">&quot;demo&quot;</span>).innerHTML = <span class="number">5</span> + <span class="number">6</span>;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure><p>结果：</p><p><img src="/2021/05/04/JavaScript%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B001/js3.png" alt="js3"></p><p><strong>提示：</strong>更改 HTML 元素的 innerHTML 属性是在 HTML 中显示数据的常用方法。</p><p>4.使用console.log()写入浏览器控制台</p><p><img src="/2021/05/04/JavaScript%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B001/js4.png" alt="js4"></p><hr>]]></content:encoded>
+      
+      
+      <category domain="http://example.com/categories/web%E5%89%8D%E7%AB%AF/">web前端</category>
+      
+      
+      <category domain="http://example.com/tags/jQuery/">jQuery</category>
+      
+      <category domain="http://example.com/tags/%E8%A1%A8%E6%A0%BC/">表格</category>
+      
+      <category domain="http://example.com/tags/%E8%A1%A8%E5%8D%95%E9%AA%8C%E8%AF%81/">表单验证</category>
+      
+      
+      <comments>http://example.com/2021/05/04/JavaScript%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B001/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Hello World</title>
