@@ -172,6 +172,107 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/14/%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84%E6%B3%A8%E9%87%8D%E7%82%B9%E5%8F%8A%E7%BD%91%E7%BB%9C%E8%B7%AF%E5%BE%84%E5%92%8C%E6%9C%AC%E5%9C%B0%E8%B7%AF%E5%BE%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YHQ">
+      <meta itemprop="description" content="在天堂和地域之间，没有我选择的权利，只有别人选择我的命运！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="这波又白给">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/03/14/%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84%E6%B3%A8%E9%87%8D%E7%82%B9%E5%8F%8A%E7%BD%91%E7%BB%9C%E8%B7%AF%E5%BE%84%E5%92%8C%E6%9C%AC%E5%9C%B0%E8%B7%AF%E5%BE%84/" class="post-title-link" itemprop="url">文件路径注重点及网络路径和本地路径</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-03-14 07:59:32 / 修改时间：08:04:32" itemprop="dateCreated datePublished" datetime="2023-03-14T07:59:32+08:00">2023-03-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" itemprop="url" rel="index"><span itemprop="name">问题解决</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2023/03/14/%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84%E6%B3%A8%E9%87%8D%E7%82%B9%E5%8F%8A%E7%BD%91%E7%BB%9C%E8%B7%AF%E5%BE%84%E5%92%8C%E6%9C%AC%E5%9C%B0%E8%B7%AF%E5%BE%84/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/03/14/%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84%E6%B3%A8%E9%87%8D%E7%82%B9%E5%8F%8A%E7%BD%91%E7%BB%9C%E8%B7%AF%E5%BE%84%E5%92%8C%E6%9C%AC%E5%9C%B0%E8%B7%AF%E5%BE%84/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>877</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>Unix使用斜杆/ 作为路径分隔符，而web应用最新使用在Unix系统上面，所以目前所有的网络地址都采用 斜杆/ 作为分隔符。<br>Windows由于使用 斜杆/ 作为DOS命令提示符的参数标志了，为了不混淆，所以采用 反斜杠\ 作为路径分隔符。所以目前windows系统上的文件浏览器都是用 反斜杠\ 作为路径分隔符。随着发展，DOS系统已经被淘汰了，命令提示符也用的很少，斜杆和反斜杠在大多数情况下可以互换，没有影响。<br>知道这个背景后，可以总结一下结论：<br>（1）浏览器地址栏网址使用 斜杆/ ;<br>（2）windows文件浏览器上使用 反斜杠\ ;<br>（3）出现在html url() 属性中的路径，指定的路径是网络路径，所以必须用 斜杆/ ;<br>// 如果url后面用反斜杠，就不会显示任何背景<br>（4）出现在普通字符串中的路径，如果代表的是windows文件路径，则使用斜杆/和反斜杠\是一样的；如果代表的是网络文件路径，则必须使用 斜杆/ ;<br><code>// 本地文件路径，/ 和 \ 是等效的</code><br><code>// 网络文件路径，一定要使用 斜杆/</code><br>（5）windows系统的地址栏能够识别单反斜杠”&quot;，而不能识别双反斜杠”\“，这是系统文件系统自身的约定，路径层次使用“\”区分而不是使用“\”来区分：<br>所以F:\Office\Trunk__Out\Pro Debug\Bin\OfficeInfo.dll这样是不正确的。<br>而在程序中，字符串中的“\”主要是为了转义，“\”转义后被理解为“\”,“\”才能够被操作系统文件系统所理解，比如用字符串表示上述路径：“F:\Office\Trunk\__Out\Pro Debug\Bin\OfficeIn可以fo.dll”，同理，如果想要表示“\”，可以写作“\\”。</p>
+</blockquote>
+<blockquote>
+<p>在不同系统的情况系 windows下是,linux和unix下是/ 但在win中没有本质区别。<br>但是由于 \ 也是转义字符的起始字符，<br>所以，路径中的 \ 通常需要使用 \如果是 / 就不需要使用转义了<br>如C中文件操作，c:\kkk\dd.txt c:/kkk/dd.txt一样<br>“./“：代表目前所在的目录<br>“../“：代表上一层目录<br>\ 用于本地/ 用于网络连接地址</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/04/JavaScript%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B001/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -910,20 +1011,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -988,7 +1089,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">7 分钟</span>
+    <span title="站点阅读时长">8 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
