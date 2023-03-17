@@ -172,136 +172,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/17/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A7%A3%E6%9E%90html%20%E8%BF%87%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="YHQ">
-      <meta itemprop="description" content="在天堂和地域之间，没有我选择的权利，只有别人选择我的命运！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="这波又白给">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/03/17/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A7%A3%E6%9E%90html%20%E8%BF%87%E7%A8%8B/" class="post-title-link" itemprop="url">Html渲染原理</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2023-03-17 19:10:12 / 修改时间：20:43:54" itemprop="dateCreated datePublished" datetime="2023-03-17T19:10:12+08:00">2023-03-17</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">Web前端</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2023/03/17/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A7%A3%E6%9E%90html%20%E8%BF%87%E7%A8%8B/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/03/17/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A7%A3%E6%9E%90html%20%E8%BF%87%E7%A8%8B/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="浏览器解析html-过程"><a href="#浏览器解析html-过程" class="headerlink" title="浏览器解析html 过程"></a>浏览器解析html 过程</h1><h2 id="前-言"><a href="#前-言" class="headerlink" title="前 言"></a>前 言</h2><blockquote>
-<p><strong>当我们在浏览器中加载一个html文件时，浏览器是如何解析渲染到页面上的呢？</strong></p>
-<p><strong>使用浏览器访问一个链接（URL），实际上就是下载、解析和显示 HTML 文档的过程。而网页（webPage）= 内容（html） + 表现（css） + 行为（javascript）</strong></p>
-</blockquote>
-<h2 id="html基本结构"><a href="#html基本结构" class="headerlink" title="html基本结构"></a>html基本结构</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--头部元素的容器 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 显示实际内容 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="html执行顺序"><a href="#html执行顺序" class="headerlink" title="html执行顺序"></a><strong>html执行顺序</strong></h2><blockquote>
-<p><strong>html执行顺序是自上而下的。</strong></p>
-<p><strong><code>&lt;!DOCTYPE html&gt;</code>:告诉了web浏览器案我们页面使用了哪个版本的HTML进行编写的指令。</strong></p>
-<p><strong><code>&lt;head&gt;</code>:该标签是所有头部元素的容器, 绝大多数头部标签的内容不会显示给读者。</strong></p>
-<p><strong>该标签下所包含的部分可加入的标签有<base>, <link>, <meta>, <script>, <style>, 以及 <title></strong></p>
-<p><strong>其中<code>&lt;link&gt;</code> 使用外联样式表引入Css文件。</strong></p>
-<p><strong><code>body</code>:用于定义文档的主体, 包含了文档的所有内容。</strong></p>
-<p><strong>该标签支持 html 的全局属性和事件属性.</strong></p>
-<p><strong>而JavaScript文件我们一般在<code>&lt;body&gt;</code>标签结束后使用<code>&lt;script&gt;</code>标签引入。</strong></p>
-</blockquote>
-<h2 id="DOM树与CSSOM树"><a href="#DOM树与CSSOM树" class="headerlink" title="DOM树与CSSOM树"></a><strong>DOM树与CSSOM树</strong></h2><blockquote>
-<p><strong>浏览器实际上将html解析成了树形的数据结构，简称DOM，我们也叫它DOM树</strong></p>
-</blockquote>
-<p><strong><img src="/./img/DOMTree.png" alt="DOM树"></strong></p>
-<blockquote>
-<p><strong>在浏览器构建 DOM 树的同时，如果样式也加载完成了，那么 CSSOM 树也在同步地构建。CSS 树和 DOM 类</strong><br><strong>似，它的树形结构会记录所有样式的信息</strong></p>
-<p><strong>因为css是对各个html元素样式进行改变，所以，我们可以将CSSOM的树模型看成这样：</strong></p>
-</blockquote>
-<p><strong><img src="/./img/CSSOMTree.png" alt="CSSOM树模型"></strong></p>
-<blockquote>
-<p><strong>1、这棵树的结构只是一个示意图，并不是浏览器构造 CSSOM 树的真实数据结构，各个浏览器实现 CSSOM 树的方式也不完全相同</strong></p>
-<p><strong>2、CSSOM 树和 DOM 树是独立的两个数据结构，它们没有一一对应的关系。DOM 树描述的是 HTML 标签的层级关系，CSSOM 树描述的是选择器之间的层级关系</strong></p>
-<p><strong>3、CSS 中存在样式继承机制，有些属性在父节点设置后，其后代节点都会具备这个样式。比如在 html 上设置一个 “color: red” ，那页面的所有标签都会继承这个属性。当然不是所有标签和属性都是可以继承的，比如 border 这种属性就是不可继承的。如果 border 可继承，那么在一个父元素里设置了以后，所有子元素都会有个边框，这显然是不合理的。所以在大部分情况下，通过这种推理，就能知道哪些样式可以继承，哪些样式不可以继承</strong></p>
-<p><strong>注意<code>CSS</code>不会阻塞<code>DOM</code>的解析，但会阻塞<code>DOM</code>的渲染</strong></p>
-</blockquote>
-<h2 id="Render树"><a href="#Render树" class="headerlink" title="Render树"></a><strong>Render树</strong></h2><p><strong><img src="/./img/r.png" alt="Render树"></strong></p>
-<blockquote>
-<p><strong>浏览器在构造DOM树的同时也在构造着另一棵树-Render Tree,与DOM树相对应暂且叫它Render树。我们知道DOM树为javascript提供了一些列的访问接口（DOM API），但这棵树是不对外的。它的主要作用就是把HTML按照一定的布局与样式显示出来，用到了CSS的相关知识。从MVC的角度来说，可以将render树看成是V，dom树看成是M，C则是具体的调度者，比HTMLDocumentParser等。</strong></p>
-</blockquote>
-</script></strong></p></blockquote>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/16/Git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -550,10 +420,115 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/14/%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84%E6%B3%A8%E9%87%8D%E7%82%B9%E5%8F%8A%E7%BD%91%E7%BB%9C%E8%B7%AF%E5%BE%84%E5%92%8C%E6%9C%AC%E5%9C%B0%E8%B7%AF%E5%BE%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YHQ">
+      <meta itemprop="description" content="在天堂和地域之间，没有我选择的权利，只有别人选择我的命运！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="这波又白给">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/03/14/%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84%E6%B3%A8%E9%87%8D%E7%82%B9%E5%8F%8A%E7%BD%91%E7%BB%9C%E8%B7%AF%E5%BE%84%E5%92%8C%E6%9C%AC%E5%9C%B0%E8%B7%AF%E5%BE%84/" class="post-title-link" itemprop="url">文件路径注重点及网络路径和本地路径</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-03-14 07:59:32 / 修改时间：09:53:51" itemprop="dateCreated datePublished" datetime="2023-03-14T07:59:32+08:00">2023-03-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" itemprop="url" rel="index"><span itemprop="name">问题解决</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2023/03/14/%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84%E6%B3%A8%E9%87%8D%E7%82%B9%E5%8F%8A%E7%BD%91%E7%BB%9C%E8%B7%AF%E5%BE%84%E5%92%8C%E6%9C%AC%E5%9C%B0%E8%B7%AF%E5%BE%84/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/03/14/%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84%E6%B3%A8%E9%87%8D%E7%82%B9%E5%8F%8A%E7%BD%91%E7%BB%9C%E8%B7%AF%E5%BE%84%E5%92%8C%E6%9C%AC%E5%9C%B0%E8%B7%AF%E5%BE%84/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>昨天利用hexo部署发布写好的博客时，出现了一个很奇怪的问题，用Markdown语法插入图片。使用<code>\</code>img<code>\</code>yxl.png一直出错，但是在本地利用hexo s命令查看localhost：4000端口，图片能加载，传到网络服务器上缺不可以加载，后来研究了一下原来是<code>\</code>的原因，特此记录一下。</p>
+</blockquote>
+<blockquote>
+<p>Unix使用斜杆/ 作为路径分隔符，而web应用最新使用在Unix系统上面，所以目前所有的网络地址都采用 斜杆/ 作为分隔符。<br>Windows由于使用 斜杆/ 作为DOS命令提示符的参数标志了，为了不混淆，所以采用 反斜杠\ 作为路径分隔符。所以目前windows系统上的文件浏览器都是用 反斜杠\ 作为路径分隔符。随着发展，DOS系统已经被淘汰了，命令提示符也用的很少，斜杆和反斜杠在大多数情况下可以互换，没有影响。<br>知道这个背景后，可以总结一下结论：<br>（1）浏览器地址栏网址使用 斜杆/ ;<br>（2）windows文件浏览器上使用 反斜杠\ ;<br>（3）出现在html url() 属性中的路径，指定的路径是网络路径，所以必须用 斜杆/ ;<br><code>// 如果url后面用反斜杠\，就不会显示任何背景</code><br>（4）出现在普通字符串中的路径，如果代表的是windows文件路径，则使用斜杆/和反斜杠\是一样的如果代表的是网络文件路径，则必须使用 斜杆/ ;<br><code>// 本地文件路径，/ 和 \ 是等效的</code><br><code>// 网络文件路径，一定要使用 斜杆/</code><br>（5）windows系统的地址栏能够识别单反斜杠”\“，而不能识别双反斜杠”\\“，这是系统文件系统自身的约定，路径层次使用“\”区分而不是使用“\\”来区分：<br>所以F:\\Office\\Trunk__Out\\Pro Debug\\Bin\\OfficeInfo.dll这样是不正确的。<br>而在程序中，字符串中的“\”主要是为了转义，“\”转义后被理解为“\”,“\”才能够被操作系统文件系统所理解，比如用字符串表示上述路径：“F:\Office\Trunk\__Out\Pro Debug\Bin\OfficeInfo.dll”，同理，如果想要表示“\”，可以写作“\\”。</p>
+</blockquote>
+<blockquote>
+<p>在不同系统的情况系 indows下是,linux和unix下是/ ,但在Windows中没有本质区别。<br>但是由于 \ 也是转义字符的起始字符，<br>所以，路径中的 \ 通常需要使用 \如果是 / 就不需要使用转义了<br>如C中文件操作，c:\kkk\dd.txt c:/kkk/dd.txt一样<br>“./“：代表目前所在的目录<br>“../“：代表上一层目录<br>\ 用于本地/ 用于网络连接地址</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/lhang55/p/7616816.html#:~:text=%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84%EF%BC%9A%2F%E5%92%8C%E7%9A%84%E5%8C%BA%E5%88%AB%20Unix%E4%BD%BF%E7%94%A8%E6%96%9C%E6%9D%86%2F%20%E4%BD%9C%E4%B8%BA%E8%B7%AF%E5%BE%84%E5%88%86%E9%9A%94%E7%AC%A6%EF%BC%8C%E8%80%8Cweb%E5%BA%94%E7%94%A8%E6%9C%80%E6%96%B0%E4%BD%BF%E7%94%A8%E5%9C%A8Unix%E7%B3%BB%E7%BB%9F%E4%B8%8A%E9%9D%A2%EF%BC%8C%E6%89%80%E4%BB%A5%E7%9B%AE%E5%89%8D%E6%89%80%E6%9C%89%E7%9A%84%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E9%83%BD%E9%87%87%E7%94%A8%20%E6%96%9C%E6%9D%86%2F%20%E4%BD%9C%E4%B8%BA%E5%88%86%E9%9A%94%E7%AC%A6%E3%80%82,Windows%E7%94%B1%E4%BA%8E%E4%BD%BF%E7%94%A8%20%E6%96%9C%E6%9D%86%2F%20%E4%BD%9C%E4%B8%BADOS%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E7%AC%A6%E7%9A%84%E5%8F%82%E6%95%B0%E6%A0%87%E5%BF%97%E4%BA%86%EF%BC%8C%E4%B8%BA%E4%BA%86%E4%B8%8D%E6%B7%B7%E6%B7%86%EF%BC%8C%E6%89%80%E4%BB%A5%E9%87%87%E7%94%A8%20%E5%8F%8D%E6%96%9C%E6%9D%A0%20%E4%BD%9C%E4%B8%BA%E8%B7%AF%E5%BE%84%E5%88%86%E9%9A%94%E7%AC%A6%E3%80%82">参考转载自：此链接</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -621,20 +596,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -693,13 +668,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">21k</span>
+    <span title="站点总字数">20k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">19 分钟</span>
+    <span title="站点阅读时长">18 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
