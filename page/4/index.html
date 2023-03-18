@@ -172,6 +172,166 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/04/%E7%AC%AC%E4%B8%80%E8%AF%BE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YHQ">
+      <meta itemprop="description" content="在天堂和地域之间，没有我选择的权利，只有别人选择我的命运！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="这波又白给">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/04/%E7%AC%AC%E4%B8%80%E8%AF%BE/" class="post-title-link" itemprop="url">JavaScript知识回顾</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-04 12:57:46" itemprop="dateCreated datePublished" datetime="2021-05-04T12:57:46+08:00">2021-05-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-16 21:07:15" itemprop="dateModified" datetime="2023-03-16T21:07:15+08:00">2023-03-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/05/04/%E7%AC%AC%E4%B8%80%E8%AF%BE/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/05/04/%E7%AC%AC%E4%B8%80%E8%AF%BE/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="js回顾"><a href="#js回顾" class="headerlink" title="js回顾"></a>js回顾</h1><h2 id="js类构造方法"><a href="#js类构造方法" class="headerlink" title="js类构造方法:"></a>js类构造方法:</h2><p>构造方法**<code>constructor</code>** 是一种用于创建和初始化<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/class"><code>class</code></a>创建的对象的特殊方法</p>
+<p>在一个类中只能有一个名为“constructor”的特殊方法。一个类中出现多次构造函数 (<code>constructor)</code>方法将会抛出一个 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError"><code>SyntaxError</code></a> 错误。</p>
+<p>在一个构造方法中可以使用<code>super</code>关键字来调用一个父类的构造方法。</p>
+<p>如果没有显式指定构造方法，则会添加默认的 constructor 方法。</p>
+<p>如果不指定一个构造函数 (constructor) 方法，则使用一个默认的构造函数 (constructor)。</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes/constructor">constructor链接</a></p>
+<figure class="highlight plaintext"><figcaption><span>函数</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const add = (a,b) =&gt; &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>对于派生类，默认构造函数是：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">constructor</span>(<span class="params">...args</span>) &#123;</span><br><span class="line">  <span class="variable language_">super</span>(...args);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<hr>
+
+<h2 id="js原型链："><a href="#js原型链：" class="headerlink" title="js原型链："></a>js原型链：</h2><p>构造函数 - 继承机制  </p>
+<blockquote>
+<p> JS通过<code>构造函数</code>来生成<code>实例</code>。但是又出现了一个新的问题，在<code>构造函数</code>中通过<code>this</code>赋值的属性或者方法，是每个实例的<code>实例属性</code>以及<code>实例方法</code>，无法共享公共属性。所以又设计出了一个<code>原型对象</code>，来存储这个<code>构造函数</code>的公共属性以及方法。</p>
+</blockquote>
+<blockquote>
+<p> 我们可以看到，它的<code>__proto__</code>属性指向了一个<code>function Function</code>的<code>原型对象</code>，该<code>原型对象</code>为JS中所有函数的<code>原型对象</code>，而其<code>__proto__</code>属性也还是指向了<code>function Object</code>的<code>原型对象</code>，所以验证了<code>原型链</code>的尽头为<code>null</code>，这一说法。</p>
+</blockquote>
+<blockquote>
+<p> 在开发的时候，要注意不要通过<code>实例对象</code>去改变其<code>构造函数</code>的<code>原型对象</code>，这样会对其他通过该<code>构造函数</code>生成的<code>实例对象</code>造成影响。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6984678359275929637#heading-7">Js原型链</a></p>
+<hr>
+
+<h2 id="super："><a href="#super：" class="headerlink" title="super："></a><strong>super</strong>：</h2><ul>
+<li><h5 id="this关键词指向函数所在的当前对象"><a href="#this关键词指向函数所在的当前对象" class="headerlink" title="this关键词指向函数所在的当前对象"></a>this关键词指向函数所在的当前对象</h5></li>
+<li><h5 id="super指向的是当前对象的原型对象"><a href="#super指向的是当前对象的原型对象" class="headerlink" title="super指向的是当前对象的原型对象"></a>super指向的是当前对象的原型对象</h5></li>
+</ul>
+<blockquote>
+<p> ES6 规定，在子类普通方法中通过<code>super</code>调用父类的方法时，<strong>方法内部的<code>this</code>指向当前的子类实例</strong></p>
+</blockquote>
+<p>Class中的 super()，它在这里表示父类的构造函数，用来新建父类的 this 对象</p>
+<blockquote>
+<p> 子类没有自己的this对象，而是继承父亲的this对象，然后进行加工。如果不调用super，子类就得不到this对象</p>
+<p>ES5的继承，实质上是先创造子类的实例对象this，然后再将父类的方法添加到this上（Parent.call(this)）.<br>ES6的继承，需要先创建父类的this，子类调用super继承父类的this对象，然后再加工。</p>
+<p>如果子类没有创建constructor，这个方法会被默认添加.</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Demo</span>&#123;</span><br><span class="line">             </span><br><span class="line">     <span class="title function_">constructor</span>(<span class="params">x,y</span>) &#123;</span><br><span class="line">         <span class="variable language_">this</span>.<span class="property">x</span> = x;</span><br><span class="line">         <span class="variable language_">this</span>.<span class="property">y</span> = y;</span><br><span class="line">     &#125;</span><br><span class="line">     </span><br><span class="line">     <span class="title function_">customSplit</span>(<span class="params"></span>)&#123;</span><br><span class="line">         <span class="keyword">return</span> [...<span class="variable language_">this</span>.<span class="property">y</span>]</span><br><span class="line">     &#125;</span><br><span class="line">     </span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> <span class="keyword">class</span> <span class="title class_">Demo2</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Demo</span>&#123;</span><br><span class="line">     <span class="title function_">constructor</span>(<span class="params">x,y</span>)&#123;</span><br><span class="line">         <span class="variable language_">super</span>(x,y);</span><br><span class="line">     &#125;</span><br><span class="line">     </span><br><span class="line">     <span class="title function_">customSplit</span>(<span class="params"></span>)&#123;</span><br><span class="line">         <span class="keyword">return</span> [...<span class="variable language_">this</span>.<span class="property">x</span>]</span><br><span class="line">     &#125;</span><br><span class="line">     </span><br><span class="line">     <span class="title function_">task1</span>(<span class="params"></span>)&#123;</span><br><span class="line">         <span class="keyword">return</span> <span class="variable language_">super</span>.<span class="title function_">customSplit</span>();</span><br><span class="line">     &#125;</span><br><span class="line">     </span><br><span class="line">     <span class="title function_">task2</span>(<span class="params"></span>)&#123;</span><br><span class="line">         <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="title function_">customSplit</span>();</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> <span class="keyword">let</span> d = <span class="keyword">new</span> <span class="title class_">Demo2</span>(<span class="string">&#x27;hello&#x27;</span>,<span class="string">&#x27;world&#x27;</span>);</span><br><span class="line"> d.<span class="title function_">task1</span>()    <span class="comment">//[&quot;w&quot;, &quot;o&quot;, &quot;r&quot;, &quot;l&quot;, &quot;d&quot;]</span></span><br><span class="line"> d.<span class="title function_">task2</span>()    <span class="comment">//[&quot;h&quot;, &quot;e&quot;, &quot;l&quot;, &quot;l&quot;, &quot;o&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<p><u>super 在静态方法之中指向父类，在普通方法之中指向父类的原型对象</u></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Parent</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="title function_">myMethod</span>(<span class="params">msg</span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;static&#x27;</span>, msg);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">myMethod</span>(<span class="params">msg</span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;instance&#x27;</span>, msg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Child</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Parent</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="title function_">myMethod</span>(<span class="params">msg</span>) &#123;</span><br><span class="line">        <span class="variable language_">super</span>.<span class="title function_">myMethod</span>(msg);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">myMethod</span>(<span class="params">msg</span>) &#123;</span><br><span class="line">        <span class="variable language_">super</span>.<span class="title function_">myMethod</span>(msg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Child</span>.<span class="title function_">myMethod</span>(<span class="number">1</span>); <span class="comment">// static 1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> child = <span class="keyword">new</span> <span class="title class_">Child</span>();</span><br><span class="line">child.<span class="title function_">myMethod</span>(<span class="number">2</span>); <span class="comment">// instance 2</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="ES6的箭头函数写法"><a href="#ES6的箭头函数写法" class="headerlink" title="ES6的箭头函数写法:"></a>ES6的<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0&spm=1001.2101.3001.7020">箭头函数</a>写法:</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//经典格式： 函数名 = ( 参数 ) =&gt; &#123; 方法体 &#125; </span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">sum</span> = (<span class="params">x,y</span>)=&gt;&#123; </span><br><span class="line">    <span class="keyword">return</span> x+y; </span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(sum) </span><br><span class="line"> </span><br><span class="line"><span class="comment">//当方法体只有一行时，花括号可以省略： </span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">sum1</span> = (<span class="params">x,y</span>) =&gt; x+y;  </span><br><span class="line"> </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(sum1) </span><br><span class="line"> </span><br><span class="line"><span class="comment">//当只有一个参数时，括号可以省略： </span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">sum2</span> = x =&gt; &#123; 方法体 &#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<ol>
+<li>* 箭头函数里是没有<strong>this</strong>的，只会向上一层寻找（可能是window）</li>
+<li>* 箭头函数里是没有<strong>arguments</strong>的</li>
+<li>* 箭头函数不能作为<strong>构造函数</strong></li>
+<li>***** 箭头函数不能定义<strong>原型</strong>下的方法</li>
+</ol>
+</blockquote>
+<h2 id="函数作用域："><a href="#函数作用域：" class="headerlink" title="函数作用域："></a>函数作用域：</h2><p>函数定义方式通常需要显式的指定函数名称，在代码执行前就被解释器加载到作用域中，这个特性可以让我们在函数定义之前就调用该函数。</p>
+<p>既然提到函数声明，就要提到函数的作用域。<strong>函数作用域是指在函数内声明的所有变量在函数体内始终是可见的，这意味着，变量在声明之前已经可用。</strong>这个特性可以被称为<strong>声明提前</strong>，即在函数体内声明的所有变量，在声明之前已经有定义，但只有在执行到这个变量时才会被真正赋值。</p>
+<p>函数直接量表达式也是用到了关键字function。一般这种定义方式适用于将它作为一个大的表达式的一部分，比如在赋值和调用过程中定义函数。通过函数直接量生成的函数，函数名称可以省略，此时就是一个匿名函数。（匿名函数谨慎使用）</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/crazyorange_shen/article/details/68957987">js函数的三种定义方式</a></p>
+<h2 id="JS数据结构和数据类型"><a href="#JS数据结构和数据类型" class="headerlink" title="JS数据结构和数据类型"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Data_structures">JS数据结构和数据类型</a></h2>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/04/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -266,200 +426,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/05/16/%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="YHQ">
-      <meta itemprop="description" content="在天堂和地域之间，没有我选择的权利，只有别人选择我的命运！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="这波又白给">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/16/%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/" class="post-title-link" itemprop="url">遇到问题及解决方案(持续更新)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-05-16 20:46:30" itemprop="dateCreated datePublished" datetime="2020-05-16T20:46:30+08:00">2020-05-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-03-17 13:24:21" itemprop="dateModified" datetime="2023-03-17T13:24:21+08:00">2023-03-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" itemprop="url" rel="index"><span itemprop="name">问题解决</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/05/16/%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/16/%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>7.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>6 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h5 id="问题01描述deprecated-x63-111-x72-101-45-106-x73-64-50-46-54-x2e-49-x32-core-js-lt-3-23-3："><a href="#问题01描述deprecated-x63-111-x72-101-45-106-x73-64-50-46-54-x2e-49-x32-core-js-lt-3-23-3：" class="headerlink" title="问题01描述deprecated &#x63;&#111;&#x72;&#101;&#45;&#106;&#x73;&#64;&#50;&#46;&#54;&#x2e;&#49;&#x32;: core-js@&lt;3.23.3："></a>问题01描述deprecated <a href="mailto:&#x63;&#111;&#x72;&#101;&#45;&#106;&#x73;&#64;&#50;&#46;&#54;&#x2e;&#49;&#x32;">&#x63;&#111;&#x72;&#101;&#45;&#106;&#x73;&#64;&#50;&#46;&#54;&#x2e;&#49;&#x32;</a>: core-js@&lt;3.23.3：</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\ASUS\IdeaWorkSpace\vue\vue&gt;npm i element-ui -S</span><br><span class="line">npm WARN deprecated core-js@2.6.12: core-js@&lt;3.23.3 is no longer maintained and not recommended for</span><br><span class="line">usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js</span><br><span class="line">versions could cause a slowdown up to 100x even if nothing is polyfilled. Some versions have web com</span><br><span class="line">patibility issues. Please, upgrade your dependencies to the actual version of core-js.</span><br></pre></td></tr></table></figure>
-
-<p>解决方法：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g core-js@3.23.3</span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="问题02描述HTTPS-connections-may-not-be-secure-See-https-aka-ms-gcm-tlsverify-for-more-information-："><a href="#问题02描述HTTPS-connections-may-not-be-secure-See-https-aka-ms-gcm-tlsverify-for-more-information-：" class="headerlink" title="问题02描述HTTPS connections may not be secure. See https://aka.ms/gcm/tlsverify for more information.："></a>问题02描述HTTPS connections may not be secure. See <a target="_blank" rel="noopener" href="https://aka.ms/gcm/tlsverify">https://aka.ms/gcm/tlsverify</a> for more information.：</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">warning: ----------------- SECURITY WARNING ----------------</span><br><span class="line">warning: | TLS certificate verification has been disabled! |</span><br><span class="line">warning: ---------------------------------------------------</span><br><span class="line">warning: HTTPS connections may not be secure. See https://aka.ms/gcm/tlsverify for more information.</span><br></pre></td></tr></table></figure>
-
-
-
-<p>解决：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.sslVerify true</span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="问题03描述：message-文档中根元素前面的标记必须格式正确-row-col-1-2"><a href="#问题03描述：message-文档中根元素前面的标记必须格式正确-row-col-1-2" class="headerlink" title="问题03描述：message:文档中根元素前面的标记必须格式正确.[row,col]:[1,2]"></a>问题03描述：message:文档中根元素前面的标记必须格式正确.[row,col]:[1,2]</h5><ul>
-<li><p>最近在学习 spring-boot的过程中，新建spring-boot项目老是出现以下提示，如图：</p>
-</li>
-<li><p>导致新建的工程只能打开部分文件，如图：</p>
-</li>
-<li><p>解决方法如下：<br>一、<br>Idea中点击“File”-&gt;“Invalidate Caches / Restart…”，之后会弹出一个对话框，再点击Invalidate and Restart，之后等待工程打开应该就可以了；</p>
-</li>
-<li><p>二、<br>如果第一种方法不行，那就去建工程的文件下，找到项目的**.idea** 文件夹，<br>直接删除，再重新启动项目就可以打开程序了。<br>——————————————</p>
-</li>
-</ul>
-<h5 id="问题04：解决Vuex刷新后无数据且页面空白"><a href="#问题04：解决Vuex刷新后无数据且页面空白" class="headerlink" title="问题04：解决Vuex刷新后无数据且页面空白"></a>问题04：解决Vuex刷新后无数据且页面空白</h5><p>自己网上找到的解决办法浅显地解决，没有知道原理：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">  export default &#123;</span><br><span class="line">  name: &#x27;App&#x27;,</span><br><span class="line">  components: &#123;</span><br><span class="line"></span><br><span class="line">  &#125;,</span><br><span class="line">    //解决刷新时vuex的数据重置消失</span><br><span class="line">    created() &#123;</span><br><span class="line">      // 先检查sessionStorage中是否有数据，若存在数据则加载到vuex</span><br><span class="line">      if (sessionStorage.getItem(&quot;store&quot;)) &#123;</span><br><span class="line">        this.$store.replaceState(</span><br><span class="line">                Object.assign(</span><br><span class="line">                        &#123;&#125;,</span><br><span class="line">                        this.$store.state,</span><br><span class="line">                        JSON.parse(sessionStorage.getItem(&quot;store&quot;))</span><br><span class="line">                )</span><br><span class="line">        );</span><br><span class="line">        sessionStorage.removeItem(&quot;store&quot;);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      //在页面刷新时将vuex里的信息保存到sessionStorage里</span><br><span class="line">      window.addEventListener(&quot;beforeunload&quot;, () =&gt; &#123;</span><br><span class="line">        sessionStorage.setItem(&quot;store&quot;, JSON.stringify(this.$store.state));</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"></span><br><span class="line">  export default &#123;</span><br><span class="line">  name: &#x27;App&#x27;,</span><br><span class="line">  components: &#123;</span><br><span class="line"></span><br><span class="line">  &#125;,</span><br><span class="line">    //解决刷新时vuex的数据重置消失</span><br><span class="line">    created() &#123;</span><br><span class="line">      // 先检查sessionStorage中是否有数据，若存在数据则加载到vuex</span><br><span class="line">      if (sessionStorage.getItem(&quot;store&quot;)) &#123;</span><br><span class="line">        this.$store.replaceState(</span><br><span class="line">                Object.assign(</span><br><span class="line">                        &#123;&#125;,</span><br><span class="line">                        this.$store.state,</span><br><span class="line">                        JSON.parse(sessionStorage.getItem(&quot;store&quot;)),</span><br><span class="line">                        JSON.parse(sessionStorage.getItem(&quot;menu&quot;))</span><br><span class="line">                )</span><br><span class="line">        );</span><br><span class="line">        this.$store.commit(&quot;setMenu&quot;,JSON.parse(sessionStorage.getItem(&quot;menu&quot;)));</span><br><span class="line">        sessionStorage.removeItem(&quot;store&quot;);</span><br><span class="line">        sessionStorage.removeItem(&quot;menu&quot;);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      //在页面刷新时将vuex里的信息保存到sessionStorage里</span><br><span class="line">      window.addEventListener(&quot;beforeunload&quot;, () =&gt; &#123;</span><br><span class="line">        sessionStorage.setItem(&quot;store&quot;, JSON.stringify(this.$store.state));</span><br><span class="line">        sessionStorage.setItem(&quot;menu&quot;, JSON.stringify(this.$store.state.routee));</span><br><span class="line">        this.$store.commit(&quot;setMenu&quot;,JSON.parse(sessionStorage.getItem(&quot;menu&quot;)));</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h5 id="问题05："><a href="#问题05：" class="headerlink" title="问题05："></a>问题05：</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Java中List初始时赋值为null，则不能添加add</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">重定向：Controller之间互相实现页面跳转（或者请求）利用redirect</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数据库表id重置: truncate table 表名</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一份form表单提交到多个地址: 用formaction</span><br></pre></td></tr></table></figure>
-
-<h5 id="问题06："><a href="#问题06：" class="headerlink" title="问题06："></a>问题06：</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db中表的主健采用了自增的方式,但是在bean中并没有定义id属性，导致报错org.apache.ibatis.executor.ExecutorException: No setter found for the keyProperty &#x27;id&#x27;</span><br></pre></td></tr></table></figure>
-
-<p>解决办法：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在配置中删除keyProperty=&quot;id&quot;的配置</span><br></pre></td></tr></table></figure>
-
-<p>原因：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">主健采用了自增的方式只需要配置：useGeneratedKeys=&quot;true&quot;</span><br><span class="line"></span><br><span class="line">keyProperty=&quot;id&quot;的意思是 将主键的中的数据 放到传入对象的成员变量id里面，因为在对像的成员变量中没有定义属性id，也没有定时id属性的get，set方法，所以会报错：org.apache.ibatis.executor.ExecutorException: No setter found for the keyProperty &#x27;id&#x27; </span><br><span class="line"></span><br><span class="line">如果db的表中没有指定主键：可以用属性keyColumn</span><br><span class="line"></span><br><span class="line">useGeneratedKeys=true,keyProperty=&quot;userId&quot;,keyColumn=&quot;user_id&quot;</span><br><span class="line"></span><br><span class="line">这个注解的意思就是，使用数据库自动增长的主键，并从table中user_id字段里面把数据放到传入对象的成员变量userId里面。</span><br><span class="line"></span><br><span class="line">如果我们已经在数据库表中指定了主键，那么keyColumn属性可以缺省。</span><br></pre></td></tr></table></figure>
-
-<h5 id="问题07："><a href="#问题07：" class="headerlink" title="问题07："></a>问题07：</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vuex中刷新页面丢失，动态路由不生效。</span><br></pre></td></tr></table></figure>
-
-<p>b站教的解决办法：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.npm i vuex-persistedstate</span><br><span class="line">2.import createPersistedState from &#x27;vuex-persistedstate&#x27;</span><br><span class="line">3.    plugins:[createPersistedState()]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">import vue from &#x27;vue&#x27;</span><br><span class="line">import Vuex from &#x27;vuex&#x27;</span><br><span class="line">import router,&#123;resetRouter&#125; from &#x27;../router&#x27;</span><br><span class="line">import createPersistedState from &#x27;vuex-persistedstate&#x27;</span><br><span class="line">vue.use(Vuex);</span><br><span class="line"></span><br><span class="line">function addNewRoute(menuList) &#123;</span><br><span class="line">    console.log(&quot;打印menuList&quot;);</span><br><span class="line">    console.log(menuList);</span><br><span class="line">    let routes = router.options.routes;</span><br><span class="line">    // console.log(&quot;路由&quot;);</span><br><span class="line">    // console.log(routes);</span><br><span class="line">    routes.forEach(routeItem=&gt;&#123;</span><br><span class="line">        if (routeItem.path==&quot;/Index&quot;)&#123;</span><br><span class="line">            menuList.forEach(menu=&gt;&#123;</span><br><span class="line">                let childRoute = &#123;</span><br><span class="line">                    path:&#x27;/&#x27;+menu.menuclick,</span><br><span class="line">                    name:menu.menuname,</span><br><span class="line">                    meta:&#123;</span><br><span class="line">                    title:menu.menuname,</span><br><span class="line">                &#125;,</span><br><span class="line">                    component:()=&gt;import(&#x27;../components/&#x27;+menu.menucomponent),</span><br><span class="line">                &#125;;</span><br><span class="line">                routeItem.children.push(childRoute);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    resetRouter();</span><br><span class="line">    router.addRoutes(routes)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default new Vuex.Store(&#123;</span><br><span class="line">    state:&#123;</span><br><span class="line">        menu: []</span><br><span class="line">    &#125;,</span><br><span class="line">    mutations:&#123;</span><br><span class="line">        setMenu(state,menuList) &#123;</span><br><span class="line">            state.menu =menuList;</span><br><span class="line">            addNewRoute(menuList);</span><br><span class="line">        &#125;,</span><br><span class="line">        setRoute(state,menuList) &#123;</span><br><span class="line">            state.menu =menuList;</span><br><span class="line">            addNewRoute(menuList);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    getters:&#123;</span><br><span class="line">        getMenu(state)&#123;</span><br><span class="line">            return state.menu</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    plugins:[createPersistedState()]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;router-view&gt;&lt;/router-view&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#x27;App&#x27;,</span><br><span class="line">  data()&#123;</span><br><span class="line">    return&#123;</span><br><span class="line">      user:JSON.parse(sessionStorage.getItem(&#x27;CurUser&#x27;)),</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,watch:&#123;</span><br><span class="line">    &#x27;$store.state.menu&#x27;:&#123;</span><br><span class="line">      handler(val,old)&#123;</span><br><span class="line">        if (!old &amp;&amp; this.user &amp;&amp; this.user.no)&#123;</span><br><span class="line">          this.$store.commit(&quot;setRoute&quot;,val)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      immediate: true</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">html,body,#app &#123;</span><br><span class="line">  /*font-family: Avenir, Helvetica, Arial, sans-serif;*/</span><br><span class="line">  /*-webkit-font-smoothing: antialiased;*/</span><br><span class="line">  /*-moz-osx-font-smoothing: grayscale;*/</span><br><span class="line">  /*text-align: center;*/</span><br><span class="line">  /*color: #2c3e50;*/</span><br><span class="line">  /*margin-top: 60px;*/</span><br><span class="line">  height: 100%;</span><br><span class="line">  margin: 0;</span><br><span class="line">  padding: 0;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mybatis:</span><br><span class="line">  configuration:</span><br><span class="line">    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl</span><br><span class="line"></span><br><span class="line">  mapper-locations: classpath:mapper/*.xml</span><br></pre></td></tr></table></figure>
-
-<h5 id="问题08：mysql自增id重置-从0开始增长"><a href="#问题08：mysql自增id重置-从0开始增长" class="headerlink" title="问题08：mysql自增id重置 从0开始增长"></a>问题08：mysql自增id重置 从0开始增长</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">自增ID 重新从0 开始增长</span><br><span class="line"></span><br><span class="line">ALTER TABLE 表名 AUTO_INCREMENT=1;</span><br></pre></td></tr></table></figure>
-
-<h5 id="问题09："><a href="#问题09：" class="headerlink" title="问题09："></a>问题09：</h5><p>项目报错</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Error:Kotlin: Module was compiled with an incompatible version of Kotlin. Th</span><br><span class="line"></span><br><span class="line">error:[Kotlin](https://so.csdn.net/so/search?q=Kotlin&amp;spm=1001.2101.3001.7020):module was compiled with an incompatible version of kotlin the binary version of its metadata is</span><br></pre></td></tr></table></figure>
-
-<p>解决：</p>
-<h6 id="方案一、compile项目"><a href="#方案一、compile项目" class="headerlink" title="方案一、compile项目"></a>方案一、compile项目</h6><p><img src="/./img/wt1.png" alt="01"></p>
-<h6 id="方案二、"><a href="#方案二、" class="headerlink" title="方案二、"></a>方案二、</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ReBuild Project</span><br></pre></td></tr></table></figure>
-
-<p><img src="/./img/wt2.png" alt="02"></p>
-<h5 id="问题10：mysql中定义datetime类型的值，在前端如何显示以及重新传入并写进数据库"><a href="#问题10：mysql中定义datetime类型的值，在前端如何显示以及重新传入并写进数据库" class="headerlink" title="问题10：mysql中定义datetime类型的值，在前端如何显示以及重新传入并写进数据库"></a>问题10：mysql中定义datetime类型的值，在前端如何显示以及重新传入并写进数据库</h5><p>解决：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">在对应的实体类中对应字段，添加注解    </span><br><span class="line">@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;)</span><br><span class="line"></span><br><span class="line">示例</span><br><span class="line">@Data</span><br><span class="line">@ApiModel(value = &quot;Exam对象&quot;, description = &quot;&quot;)</span><br><span class="line">public class Exam implements Serializable &#123;</span><br><span class="line"></span><br><span class="line">    private static final long serialVersionUID = 1L;</span><br><span class="line"></span><br><span class="line">    @TableId(value = &quot;id&quot;, type = IdType.AUTO)</span><br><span class="line">    private Integer id;</span><br><span class="line"></span><br><span class="line">    private String examName;</span><br><span class="line"></span><br><span class="line">    private String examAddress;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;)</span><br><span class="line">    private LocalDateTime examStartTime;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;)</span><br><span class="line">    private LocalDateTime examEndTime;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h5 id="问题11："><a href="#问题11：" class="headerlink" title="问题11："></a>问题11：</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.$refs.form.validate()不起作用</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在表单校验的规则中，一定要有 callback()</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -527,7 +497,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives">
         
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -599,13 +569,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">20k</span>
+    <span title="站点总字数">31k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">18 分钟</span>
+    <span title="站点阅读时长">28 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

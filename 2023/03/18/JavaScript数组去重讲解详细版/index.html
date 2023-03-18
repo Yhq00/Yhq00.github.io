@@ -22,30 +22,33 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="在天堂和地域之间，没有我选择的权利，只有别人选择我的命运！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="这波又白给">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="JavaScript数组去重讲解详细前言 博主也是刚刚开始水面试题才去了解JavaScript,并没有系统地去学习过JavaScript，如果博客或者其他博文有哪里不正确，不足的地方，欢迎各位指正、补充。话不多说，其实方法都一样（我就是加以自己的理解,也不知道对不对）例子均来自牛客面试题。  1. 利用ES6 Set去重（ES6中最常用）123456function unique (arr) &amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript数组去重讲解详细版">
+<meta property="og:url" content="http://example.com/2023/03/18/JavaScript%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D%E8%AE%B2%E8%A7%A3%E8%AF%A6%E7%BB%86%E7%89%88/index.html">
 <meta property="og:site_name" content="这波又白给">
-<meta property="og:description" content="在天堂和地域之间，没有我选择的权利，只有别人选择我的命运！">
+<meta property="og:description" content="JavaScript数组去重讲解详细前言 博主也是刚刚开始水面试题才去了解JavaScript,并没有系统地去学习过JavaScript，如果博客或者其他博文有哪里不正确，不足的地方，欢迎各位指正、补充。话不多说，其实方法都一样（我就是加以自己的理解,也不知道对不对）例子均来自牛客面试题。  1. 利用ES6 Set去重（ES6中最常用）123456function unique (arr) &amp;#">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-03-18T12:13:33.000Z">
+<meta property="article:modified_time" content="2023-03-18T13:27:04.776Z">
 <meta property="article:author" content="YHQ">
+<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2023/03/18/JavaScript%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D%E8%AE%B2%E8%A7%A3%E8%AF%A6%E7%BB%86%E7%89%88/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>这波又白给</title>
+  <title>JavaScript数组去重讲解详细版 | 这波又白给</title>
   
 
 
@@ -166,9 +169,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -184,10 +188,9 @@
       <meta itemprop="name" content="这波又白给">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/03/18/JavaScript%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D%E8%AE%B2%E8%A7%A3%E8%AF%A6%E7%BB%86%E7%89%88/" class="post-title-link" itemprop="url">JavaScript数组去重讲解详细版</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          JavaScript数组去重讲解详细版
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -248,7 +251,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="JavaScript数组去重讲解详细"><a href="#JavaScript数组去重讲解详细" class="headerlink" title="JavaScript数组去重讲解详细"></a><strong>JavaScript数组去重讲解详细</strong></h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h2><blockquote>
+        <h1 id="JavaScript数组去重讲解详细"><a href="#JavaScript数组去重讲解详细" class="headerlink" title="JavaScript数组去重讲解详细"></a><strong>JavaScript数组去重讲解详细</strong></h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h2><blockquote>
 <p><strong>博主也是刚刚开始水面试题才去了解JavaScript,并没有系统地去学习过JavaScript，如果博客或者其他博文有哪里不正确，不足的地方，欢迎各位指正、补充。话不多说，其实方法都一样（我就是加以自己的理解,也不知道对不对）例子均来自<a target="_blank" rel="noopener" href="https://www.nowcoder.com/issue/tutorial?tutorialId=96&uuid=24304825a0c04ea9a53cdb09cb664834">牛客面试题</a>。</strong></p>
 </blockquote>
 <h2 id="1-利用ES6-Set去重（ES6中最常用）"><a href="#1-利用ES6-Set去重（ES6中最常用）" class="headerlink" title="1. 利用ES6 Set去重（ES6中最常用）"></a><strong>1. 利用ES6 Set去重（ES6中最常用）</strong></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">unique</span> (arr) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="title class_">Array</span>.<span class="title function_">from</span>(<span class="keyword">new</span> <span class="title class_">Set</span>(arr))</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">1</span>,<span class="string">&#x27;true&#x27;</span>,<span class="string">&#x27;true&#x27;</span>,<span class="literal">true</span>,<span class="literal">true</span>,<span class="number">15</span>,<span class="number">15</span>,<span class="literal">false</span>,<span class="literal">false</span>, <span class="literal">undefined</span>,<span class="literal">undefined</span>, <span class="literal">null</span>,<span class="literal">null</span>, <span class="title class_">NaN</span>, <span class="title class_">NaN</span>,<span class="string">&#x27;NaN&#x27;</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;a&#x27;</span>,&#123;&#125;,&#123;&#125;];</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">unique</span>(arr))</span><br><span class="line"> <span class="comment">//[1, &quot;true&quot;, true, 15, false, undefined, null, NaN, &quot;NaN&quot;, 0, &quot;a&quot;, &#123;&#125;, &#123;&#125;]</span></span><br></pre></td></tr></table></figure>
@@ -432,282 +435,86 @@
 </ol>
 </blockquote>
 
-      
     </div>
 
     
     
     
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+        
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/16/Git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>YHQ
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://example.com/2023/03/18/JavaScript%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D%E8%AE%B2%E8%A7%A3%E8%AF%A6%E7%BB%86%E7%89%88/" title="JavaScript数组去重讲解详细版">http://example.com/2023/03/18/JavaScript数组去重讲解详细版/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="YHQ">
-      <meta itemprop="description" content="在天堂和地域之间，没有我选择的权利，只有别人选择我的命运！">
-    </span>
+        
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="这波又白给">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/03/16/Git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">Git基本使用及常用命令</a>
-        </h2>
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
+    <div class="social-list">
 
-              <time title="创建时间：2023-03-16 20:33:38 / 修改时间：20:38:33" itemprop="dateCreated datePublished" datetime="2023-03-16T20:33:38+08:00">2023-03-16</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Git%E4%BD%BF%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">Git使用</span></a>
-                </span>
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
             </span>
 
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2023/03/16/Git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/03/16/Git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>4.3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
-            </span>
-
+            <span class="label">WeChat</span>
+          </a>
         </div>
-      </header>
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
 
-      
-          <h1 id="Git学习笔记"><a href="#Git学习笔记" class="headerlink" title="Git学习笔记"></a>Git学习笔记</h1><h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><blockquote>
-<p>提交分三步</p>
-<p>第一 <code>git add .</code> 修改添加到缓存区</p>
-<p>第二 <code>git commit -m &#39;修改内容说明&#39;</code>提交缓存区文件</p>
-<p>第三 <code>git push</code> 向远程仓库推送。</p>
-</blockquote>
-<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><h4 id="git-config"><a href="#git-config" class="headerlink" title="git config"></a>git config</h4><blockquote>
-<p><code>git config</code> 命令用于获取并设置存储库或全局选项（一般刚下载的git需要配置用户名和用户邮箱，以获取获取代码的权限）</p>
-<p>可以通过<code>git config</code>来配置用户名和邮箱地址，便于我们将代码提交到远程仓库</p>
-<p><code>git config --global user.name &#39;你的用户名&#39;</code><br><code>git config --global user.email &#39;你的邮箱&#39;</code></p>
-<p>如果去掉 –global 参数只对当前仓库有效.</p>
-</blockquote>
-<h4 id="git-init"><a href="#git-init" class="headerlink" title="git init"></a>git init</h4><blockquote>
-<p>命令格式：<code>git init</code></p>
-<p><code>git init</code>: 用于初始化厂库</p>
-<p>使用<code>git init</code> 命令后，会在命令输入的根目录下生成一个<code>.git</code>目录，该目录包括了一些资源数据。</p>
-<p>也可以 <code>git init  文件名或路径</code> 在指定路径目录下初始化厂库、生成<code>.git</code>文件。 </p>
-</blockquote>
-<h4 id="git-clone"><a href="#git-clone" class="headerlink" title="git clone"></a>git clone</h4><blockquote>
-<p>命令格式：<code>git clone</code></p>
-<p><code>git clone</code> ：将远程仓库的资源克隆到本地</p>
-<p><code>git clone &lt;url&gt; [directory]</code></p>
-<p>此命令的两个参数 <code>url</code>为仓库地址，<code>directory</code>为本地路径。<code>directory</code>可以省略，则默认会克隆<code>url</code>地址下的仓库到当前命令行输入路径。</p>
-</blockquote>
-<h4 id="git-add"><a href="#git-add" class="headerlink" title="git add"></a>git add</h4><blockquote>
-<p>命令格式：<code>git add [file1] [file2] ...</code></p>
-<p>添加文件到暂存区：<br><code>git add file</code></p>
-<p>添加指定目录到暂存区，包括子目录：</p>
-<p><code>git add [dir]</code></p>
-<p>常用命令为添加当前目录下的所有文件到暂存区：</p>
-<p><code>git add .</code></p>
-<p>当然我们也可以指定某一类文件，如将java文件添加到缓存中，可以使用如下命令：</p>
-<p><code>git add *.java</code></p>
-</blockquote>
-<h4 id="git-commit"><a href="#git-commit" class="headerlink" title="git commit"></a>git commit</h4><blockquote>
-<p>命令格式：<code>git commit -m [message]</code></p>
-<p><code>[message]</code> 可以是一些备注信息。</p>
-<p><strong>-a</strong> 参数设置修改文件后不需要执行 git add 命令，直接来提交:</p>
-<p><code>git commit -a</code></p>
-</blockquote>
-<h4 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h4><blockquote>
-<p>命令格式：<code>git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</code></p>
-<p>将本地分支的更新，推送到远程仓库中。</p>
-<p>实例：<code>git push origin newbranch:newbranch </code></p>
-<p>如果本地分支名与远程分支名相同，则可以省略 <code>：&lt;远程分支名&gt;</code></p>
-<p>如果本地版本与远程版本有差异，但又要强制推送可以使用 –force 参数：</p>
-<p><code>git push --force origin master</code></p>
-<p>删除主机的分支可以使用 –delete 参数，以下命令表示删除 origin 主机的 master 分支:</p>
-<p><code>git push origin --delete master</code></p>
-</blockquote>
-<h4 id="git-pull"><a href="#git-pull" class="headerlink" title="git pull"></a>git pull</h4><blockquote>
-<p>命令格式：<code>git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</code></p>
-<p><code>git pull</code> 其实就是 <code>git fetch</code> 和 <code>git merge FETCH_HEAD</code> 的简写。</p>
-<p><code>git pull</code>命令将远程仓库的资源拉取到本地。常用的用法，切换到主分支，然后<code>git pull</code>就可以了，此命令相当于本地主分支的资源与远程的仓库资源做了同步</p>
-<p>将远程主机 origin 的 master 分支拉取过来，与本地的 brantest 分支合并:</p>
-<p><code>git pull origin master:brantest</code></p>
-<p>如果远程分支是与当前分支合并，则冒号后面的部分可以省略 <code>：&lt;本地分支名&gt;</code></p>
-</blockquote>
-<h4 id="git-fetch"><a href="#git-fetch" class="headerlink" title="git fetch"></a>git fetch</h4><blockquote>
-<p>从远程仓库中下载资源，且和pull不一样，pull会合并资源，fetch不会</p>
-</blockquote>
-<h4 id="git-rm"><a href="#git-rm" class="headerlink" title="git rm"></a>git rm</h4><blockquote>
-<p>命令格式：<code>git rm &lt;file&gt;</code></p>
-<p><code>git rm &lt;file&gt;</code> 将文件从工作区和暂存区删除</p>
-<p><code>git rm</code>用于删除文件</p>
-<p>如果只是简单地从工作目录中手工删除文件，运行 <code>git status</code> 时就会在 <code>Changes not staged for commit</code> 的提示.</p>
-<p>如果删除之前修改过并且已经放到暂存区域的话，则必须要用强制删除选项 -f</p>
-<p><code>git rm -f &lt;file&gt;</code></p>
-<p>如果把文件从暂存区域移除，但仍然希望保留在当前工作目录中，换句话说，仅是从跟踪清单中删除，使用 –cached 选项即可</p>
-<p><code>git rm --cached &lt;file&gt;</code></p>
-<p>可以递归删除，即如果后面跟的是一个目录做为参数，则会递归删除整个目录中的所有子目录和文件：</p>
-<p><code>git rm –r *</code></p>
-</blockquote>
-<h4 id="git-mv"><a href="#git-mv" class="headerlink" title="git mv"></a>git mv</h4><blockquote>
-<p>命令格式：<code>git mv [file] [newfile] </code></p>
-<p>git mv 命令用于移动或重命名一个文件、目录、软连接，如要将一个test.txt文件重命名为newtest.txt，则可以使用如下命令：</p>
-<p><code>git mv test.txt newtest.txt</code></p>
-<p>如果新文件名已经存在，但还是要重命名它，可以使用 <strong>-f</strong> 参数：</p>
-<p><code>git mv -f [file] [newfile]</code></p>
-</blockquote>
-<h3 id="Git分支管理"><a href="#Git分支管理" class="headerlink" title="Git分支管理"></a>Git分支管理</h3><h4 id="git-branch"><a href="#git-branch" class="headerlink" title="git branch"></a>git branch</h4><blockquote>
-<p><em><strong>git branch</strong></em> 有多种命令格式：</p>
-<ul>
-<li>**<code>git branch</code>**：查看分支命令，其中<code>*</code>号的分支为当前所在分支。<code>git branch -a</code>查看本地分支和远程分支</li>
-<li>**<code>git branch (branchname)</code>**：创建分支命令， 我们也可以使用 <strong><code>git checkout -b (branchname)</code></strong> 命令来创建新分支并立即切换到该分支下，从而在该分支中操作</li>
-<li>**<code>git checkout (branchname)</code>**：切换分支命令</li>
-<li><strong><code>git branch -delete (branchname)</code><strong>：删除分支命令,可以简化为</strong><code>git branch -d (branchname)</code></strong></li>
-</ul>
-</blockquote>
-<h4 id="git-merge"><a href="#git-merge" class="headerlink" title="git merge"></a>git merge</h4><blockquote>
-<p>命令格式：<code>git merge &lt;需要合并的分支&gt;</code></p>
-<p><code>git merge &lt;需要合并的分支&gt;</code>该命令执行后，会将<code>需要合并的分支</code>合并到<code>当前分支</code></p>
-</blockquote>
-<h4 id="Git-标签"><a href="#Git-标签" class="headerlink" title="Git 标签"></a>Git 标签</h4><blockquote>
-<p>如果你达到一个重要的阶段，并希望永远记住那个特别的提交快照，你可以使用 git tag 给它打上标签。</p>
-<p>比如说，我们想为我们的 runoob 项目发布一个”1.0”版本。 我们可以用 git tag -a v1.0 命令给最新一次提交打上（HEAD）”v1.0”的标签。</p>
-<p>-a 选项意为”创建一个带注解的标签”。 不用 -a 选项也可以执行的，但它不会记录这标签是啥时候打的，谁打的，也不会让你添加个标签的注解。 我推荐一直创建带注解的标签。不用 -a 选项也可以执行的，但它不会记录这标签是啥.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;$ git tag -a v1.0 </span><br></pre></td></tr></table></figure>
-
-<p>当你执行 git tag -a 命令时，Git 会打开你的编辑器，让你写一句标签注解，就像你给提交写注解一样。</p>
-<p>现在，注意当我们执行 git log –decorate 时，我们可以看到我们的标签了：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;*   d5e9fc2 (HEAD -&gt; master) Merge branch &#x27;change_site&#x27;</span><br><span class="line">&gt;|\  </span><br><span class="line">&gt;| * 7774248 (change_site) changed the runoob.php</span><br><span class="line">&gt;* | c68142b 修改代码</span><br><span class="line">&gt;|/  </span><br><span class="line">&gt;* c1501a2 removed test.txt、add runoob.php</span><br><span class="line">&gt;* 3e92c19 add test.txt</span><br><span class="line">&gt;* 3b58100 第一次版本提交</span><br></pre></td></tr></table></figure>
-
-<p>如果我们忘了给某个提交打标签，又将它发布了，我们可以给它追加标签。</p>
-<p>例如，假设我们发布了提交 85fc7e7(上面实例最后一行)，但是那时候忘了给它打标签。 我们现在也可以：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;$ git tag -a v0.9 85fc7e7</span><br><span class="line">&gt;$ git log --oneline --decorate --graph</span><br><span class="line">&gt;*   d5e9fc2 (HEAD -&gt; master) Merge branch &#x27;change_site&#x27;</span><br><span class="line">&gt;|\  </span><br><span class="line">&gt;| * 7774248 (change_site) changed the runoob.php</span><br><span class="line">&gt;* | c68142b 修改代码</span><br><span class="line">&gt;|/  </span><br><span class="line">&gt;* c1501a2 removed test.txt、add runoob.php</span><br><span class="line">&gt;* 3e92c19 add test.txt</span><br><span class="line">&gt;* 3b58100 (tag: v0.9) 第一次版本提交</span><br></pre></td></tr></table></figure>
-
-<p>如果我们要查看所有标签可以使用以下命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;$ git tag</span><br><span class="line">&gt;v0.9</span><br><span class="line">&gt;v1.0</span><br></pre></td></tr></table></figure>
-
-<p>指定标签信息命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;git tag -a &lt;tagname&gt; -m &quot;runoob.com标签&quot;</span><br></pre></td></tr></table></figure>
-
-<p>PGP签名标签命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;git tag -s &lt;tagname&gt; -m &quot;runoob.com标签&quot;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h3 id="Git-远程仓库"><a href="#Git-远程仓库" class="headerlink" title="Git 远程仓库"></a>Git 远程仓库</h3><p>前面我们使用到的 Git 命令都是在本地执行，如果你想通过 Git 分享你的代码或者与其他开发人员合作。 你就需要将数据放到一台其他开发人员能够连接的服务器上。本本将使用 Github 作为远程仓库，来介绍Git 远程仓库的使用。</p>
-<p>下面介绍远程仓库常用的几种指令：</p>
-<ul>
-<li><code>git remote add</code>：添加远程仓库</li>
-<li><code>git remote</code>：查看当前的远程仓库</li>
-<li><code>git fetch</code>、<code>git pull</code>：提取远程仓仓库</li>
-<li><code>git push</code>：推送到远程仓库</li>
-<li><code>git remote rm</code>：删除远程仓库</li>
-</ul>
-<h4 id="git-remote-add"><a href="#git-remote-add" class="headerlink" title="git remote add"></a>git remote add</h4><blockquote>
-<p>命令格式：<code>git remote add [alias] [url]</code></p>
-<p>参数[alias]为别名， <code>[url]</code>为远程仓库的地址，如：我们可以将<a target="_blank" rel="noopener" href="https://github.com/Yhq00/Yhq00.github.io.git">https://github.com/Yhq00/Yhq00.github.io.git</a></p>
-<p>仓库添加到本地，并命名为test，操作如下：</p>
-<p><code>git remote add https://github.com/Yhq00/Yhq00.github.io.git </code></p>
-</blockquote>
-<h4 id="git-remote"><a href="#git-remote" class="headerlink" title="git remote"></a><strong>git remote</strong></h4><blockquote>
-<p>命令格式：<code>git remote</code>，该命令可以查看当前有哪些远程仓库</p>
-</blockquote>
-<h4 id="git-fetch、git-pull"><a href="#git-fetch、git-pull" class="headerlink" title="git fetch、git pull"></a>git fetch、git pull</h4><blockquote>
-<p>命令格式：<code>git fetch [alias]</code>、<code>git pull [alias]</code></p>
-<p><code>git fetch</code>、<code>git pull</code>可以提取远程仓库的数据，如果有多个远程仓库，我们可以在后面加仓库的别名，操作如下:</p>
-<p><code>git fetch [仓库别名]</code></p>
-<p><code>git fetch [仓库别名]</code></p>
-<p><code>git fetch</code>和<code>git pull</code>的区别：</p>
-<ol>
-<li><code>git fetch</code>：相当于是从远程获取最新版本到本地，不会自动合并。</li>
-<li><code>git pull</code>：相当于是从远程获取最新版本并merge到本地。</li>
-</ol>
-</blockquote>
-<h4 id="git-push-1"><a href="#git-push-1" class="headerlink" title="git push"></a>git push</h4><blockquote>
-<p>命令格式：<code>git push [alias] [branch]</code></p>
-<p>该命令会推送你的新分支与数据到某个远端仓库.</p>
-</blockquote>
-<h4 id="git-remote-rm"><a href="#git-remote-rm" class="headerlink" title="git remote rm"></a>git remote rm</h4><blockquote>
-<p>命令格式: <code>git remote rm [alias]</code></p>
-<p><code>git remote rm</code>删除远程仓库</p>
-</blockquote>
-<p>到此，基本的git操作就介绍完了。</p>
-<p>参考自:</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qtiao/article/details/97783243">Git 常用基本命令使用详细大全_git常用命令_坚强的小水滴的博客-CSDN博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.runoob.com/git/git-tutorial.html">菜鸟Git教程</a></p>
-
-      
+            <span class="label">RSS</span>
+          </a>
+        </div>
     </div>
+  </div>
 
-    
-    
-    
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
+          <div class="post-tags">
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/03/16/Git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" rel="prev" title="Git基本使用及常用命令">
+      <i class="fa fa-chevron-left"></i> Git基本使用及常用命令
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
       </footer>
+    
   </article>
   
   
   
-
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
 
 
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -754,6 +561,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D%E8%AE%B2%E8%A7%A3%E8%AF%A6%E7%BB%86"><span class="nav-number">1.</span> <span class="nav-text">JavaScript数组去重讲解详细</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%88%A9%E7%94%A8ES6-Set%E5%8E%BB%E9%87%8D%EF%BC%88ES6%E4%B8%AD%E6%9C%80%E5%B8%B8%E7%94%A8%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">1. 利用ES6 Set去重（ES6中最常用）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E9%87%8A"><span class="nav-number">1.2.1.</span> <span class="nav-text">解释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%88%A9%E7%94%A8for%E5%B5%8C%E5%A5%97for%EF%BC%8C%E7%84%B6%E5%90%8Esplice%E5%8E%BB%E9%87%8D%EF%BC%88ES5%E4%B8%AD%E6%9C%80%E5%B8%B8%E7%94%A8%EF%BC%89"><span class="nav-number">1.3.</span> <span class="nav-text">2. 利用for嵌套for，然后splice去重（ES5中最常用）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E9%87%8A-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">解释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%88%A9%E7%94%A8indexOf%E5%8E%BB%E9%87%8D"><span class="nav-number">1.4.</span> <span class="nav-text">3. 利用indexOf去重</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E9%87%8A-2"><span class="nav-number">1.4.1.</span> <span class="nav-text">解释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%88%A9%E7%94%A8sort"><span class="nav-number">1.5.</span> <span class="nav-text">4. 利用sort()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E9%87%8A-3"><span class="nav-number">1.5.1.</span> <span class="nav-text">解释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E5%88%A9%E7%94%A8%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B1%9E%E6%80%A7%E4%B8%8D%E8%83%BD%E7%9B%B8%E5%90%8C%E7%9A%84%E7%89%B9%E7%82%B9%E8%BF%9B%E8%A1%8C%E5%8E%BB%E9%87%8D%EF%BC%88%E8%BF%99%E7%A7%8D%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D%E7%9A%84%E6%96%B9%E6%B3%95%E6%9C%89%E9%97%AE%E9%A2%98%EF%BC%8C%E4%B8%8D%E5%BB%BA%E8%AE%AE%E7%94%A8%EF%BC%8C%E6%9C%89%E5%BE%85%E6%94%B9%E8%BF%9B%EF%BC%89"><span class="nav-number">1.6.</span> <span class="nav-text">5. 利用对象的属性不能相同的特点进行去重（这种数组去重的方法有问题，不建议用，有待改进）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E9%87%8A-4"><span class="nav-number">1.6.1.</span> <span class="nav-text">解释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E5%88%A9%E7%94%A8includes"><span class="nav-number">1.7.</span> <span class="nav-text">6. 利用includes</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E9%87%8A-5"><span class="nav-number">1.7.1.</span> <span class="nav-text">解释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E5%88%A9%E7%94%A8hasOwnProperty"><span class="nav-number">1.8.</span> <span class="nav-text">7. 利用hasOwnProperty</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E9%87%8A-6"><span class="nav-number">1.8.1.</span> <span class="nav-text">解释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-%E5%88%A9%E7%94%A8filter"><span class="nav-number">1.9.</span> <span class="nav-text">8. 利用filter</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E9%87%8A-7"><span class="nav-number">1.9.1.</span> <span class="nav-text">解释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-%E5%88%A9%E7%94%A8%E9%80%92%E5%BD%92%E5%8E%BB%E9%87%8D"><span class="nav-number">1.10.</span> <span class="nav-text">9. 利用递归去重</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E9%87%8A-8"><span class="nav-number">1.10.1.</span> <span class="nav-text">解释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-%E5%88%A9%E7%94%A8Map%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%8E%BB%E9%87%8D"><span class="nav-number">1.11.</span> <span class="nav-text">10. 利用Map数据结构去重</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E9%87%8A-9"><span class="nav-number">1.11.1.</span> <span class="nav-text">解释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-%E5%88%A9%E7%94%A8reduce-includes"><span class="nav-number">1.12.</span> <span class="nav-text">11. 利用reduce+includes</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E9%87%8A-10"><span class="nav-number">1.12.1.</span> <span class="nav-text">解释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-%E2%80%A6new-Set-arr"><span class="nav-number">1.13.</span> <span class="nav-text">12. […new Set(arr)]</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E9%87%8A-11"><span class="nav-number">1.13.1.</span> <span class="nav-text">解释</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
