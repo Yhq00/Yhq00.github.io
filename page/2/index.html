@@ -172,6 +172,264 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/16/Git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YHQ">
+      <meta itemprop="description" content="在天堂和地域之间，没有我选择的权利，只有别人选择我的命运！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="这波又白给">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/03/16/Git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">Git基本使用及常用命令</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-03-16 20:33:38" itemprop="dateCreated datePublished" datetime="2023-03-16T20:33:38+08:00">2023-03-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-18 22:20:32" itemprop="dateModified" datetime="2023-03-18T22:20:32+08:00">2023-03-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git%E4%BD%BF%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">Git使用</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2023/03/16/Git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/03/16/Git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Git学习笔记"><a href="#Git学习笔记" class="headerlink" title="Git学习笔记"></a>Git学习笔记</h1><h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><blockquote>
+<p>提交分三步</p>
+<p>第一 <code>git add .</code> 修改添加到缓存区</p>
+<p>第二 <code>git commit -m &#39;修改内容说明&#39;</code>提交缓存区文件</p>
+<p>第三 <code>git push</code> 向远程仓库推送。</p>
+</blockquote>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><h4 id="git-config"><a href="#git-config" class="headerlink" title="git config"></a>git config</h4><blockquote>
+<p><code>git config</code> 命令用于获取并设置存储库或全局选项（一般刚下载的git需要配置用户名和用户邮箱，以获取获取代码的权限）</p>
+<p>可以通过<code>git config</code>来配置用户名和邮箱地址，便于我们将代码提交到远程仓库</p>
+<p><code>git config --global user.name &#39;你的用户名&#39;</code><br><code>git config --global user.email &#39;你的邮箱&#39;</code></p>
+<p>如果去掉 –global 参数只对当前仓库有效.</p>
+</blockquote>
+<h4 id="git-init"><a href="#git-init" class="headerlink" title="git init"></a>git init</h4><blockquote>
+<p>命令格式：<code>git init</code></p>
+<p><code>git init</code>: 用于初始化厂库</p>
+<p>使用<code>git init</code> 命令后，会在命令输入的根目录下生成一个<code>.git</code>目录，该目录包括了一些资源数据。</p>
+<p>也可以 <code>git init  文件名或路径</code> 在指定路径目录下初始化厂库、生成<code>.git</code>文件。 </p>
+</blockquote>
+<h4 id="git-clone"><a href="#git-clone" class="headerlink" title="git clone"></a>git clone</h4><blockquote>
+<p>命令格式：<code>git clone</code></p>
+<p><code>git clone</code> ：将远程仓库的资源克隆到本地</p>
+<p><code>git clone &lt;url&gt; [directory]</code></p>
+<p>此命令的两个参数 <code>url</code>为仓库地址，<code>directory</code>为本地路径。<code>directory</code>可以省略，则默认会克隆<code>url</code>地址下的仓库到当前命令行输入路径。</p>
+</blockquote>
+<h4 id="git-add"><a href="#git-add" class="headerlink" title="git add"></a>git add</h4><blockquote>
+<p>命令格式：<code>git add [file1] [file2] ...</code></p>
+<p>添加文件到暂存区：<br><code>git add file</code></p>
+<p>添加指定目录到暂存区，包括子目录：</p>
+<p><code>git add [dir]</code></p>
+<p>常用命令为添加当前目录下的所有文件到暂存区：</p>
+<p><code>git add .</code></p>
+<p>当然我们也可以指定某一类文件，如将java文件添加到缓存中，可以使用如下命令：</p>
+<p><code>git add *.java</code></p>
+</blockquote>
+<h4 id="git-commit"><a href="#git-commit" class="headerlink" title="git commit"></a>git commit</h4><blockquote>
+<p>命令格式：<code>git commit -m [message]</code></p>
+<p><code>[message]</code> 可以是一些备注信息。</p>
+<p><strong>-a</strong> 参数设置修改文件后不需要执行 git add 命令，直接来提交:</p>
+<p><code>git commit -a</code></p>
+</blockquote>
+<h4 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h4><blockquote>
+<p>命令格式：<code>git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</code></p>
+<p>将本地分支的更新，推送到远程仓库中。</p>
+<p>实例：<code>git push origin newbranch:newbranch </code></p>
+<p>如果本地分支名与远程分支名相同，则可以省略 <code>：&lt;远程分支名&gt;</code></p>
+<p>如果本地版本与远程版本有差异，但又要强制推送可以使用 –force 参数：</p>
+<p><code>git push --force origin master</code></p>
+<p>删除主机的分支可以使用 –delete 参数，以下命令表示删除 origin 主机的 master 分支:</p>
+<p><code>git push origin --delete master</code></p>
+</blockquote>
+<h4 id="git-pull"><a href="#git-pull" class="headerlink" title="git pull"></a>git pull</h4><blockquote>
+<p>命令格式：<code>git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</code></p>
+<p><code>git pull</code> 其实就是 <code>git fetch</code> 和 <code>git merge FETCH_HEAD</code> 的简写。</p>
+<p><code>git pull</code>命令将远程仓库的资源拉取到本地。常用的用法，切换到主分支，然后<code>git pull</code>就可以了，此命令相当于本地主分支的资源与远程的仓库资源做了同步</p>
+<p>将远程主机 origin 的 master 分支拉取过来，与本地的 brantest 分支合并:</p>
+<p><code>git pull origin master:brantest</code></p>
+<p>如果远程分支是与当前分支合并，则冒号后面的部分可以省略 <code>：&lt;本地分支名&gt;</code></p>
+</blockquote>
+<h4 id="git-fetch"><a href="#git-fetch" class="headerlink" title="git fetch"></a>git fetch</h4><blockquote>
+<p>从远程仓库中下载资源，且和pull不一样，pull会合并资源，fetch不会</p>
+</blockquote>
+<h4 id="git-rm"><a href="#git-rm" class="headerlink" title="git rm"></a>git rm</h4><blockquote>
+<p>命令格式：<code>git rm &lt;file&gt;</code></p>
+<p><code>git rm &lt;file&gt;</code> 将文件从工作区和暂存区删除</p>
+<p><code>git rm</code>用于删除文件</p>
+<p>如果只是简单地从工作目录中手工删除文件，运行 <code>git status</code> 时就会在 <code>Changes not staged for commit</code> 的提示.</p>
+<p>如果删除之前修改过并且已经放到暂存区域的话，则必须要用强制删除选项 -f</p>
+<p><code>git rm -f &lt;file&gt;</code></p>
+<p>如果把文件从暂存区域移除，但仍然希望保留在当前工作目录中，换句话说，仅是从跟踪清单中删除，使用 –cached 选项即可</p>
+<p><code>git rm --cached &lt;file&gt;</code></p>
+<p>可以递归删除，即如果后面跟的是一个目录做为参数，则会递归删除整个目录中的所有子目录和文件：</p>
+<p><code>git rm –r *</code></p>
+</blockquote>
+<h4 id="git-mv"><a href="#git-mv" class="headerlink" title="git mv"></a>git mv</h4><blockquote>
+<p>命令格式：<code>git mv [file] [newfile] </code></p>
+<p>git mv 命令用于移动或重命名一个文件、目录、软连接，如要将一个test.txt文件重命名为newtest.txt，则可以使用如下命令：</p>
+<p><code>git mv test.txt newtest.txt</code></p>
+<p>如果新文件名已经存在，但还是要重命名它，可以使用 <strong>-f</strong> 参数：</p>
+<p><code>git mv -f [file] [newfile]</code></p>
+</blockquote>
+<h3 id="Git分支管理"><a href="#Git分支管理" class="headerlink" title="Git分支管理"></a>Git分支管理</h3><h4 id="git-branch"><a href="#git-branch" class="headerlink" title="git branch"></a>git branch</h4><blockquote>
+<p><em><strong>git branch</strong></em> 有多种命令格式：</p>
+<ul>
+<li>**<code>git branch</code>**：查看分支命令，其中<code>*</code>号的分支为当前所在分支。<code>git branch -a</code>查看本地分支和远程分支</li>
+<li>**<code>git branch (branchname)</code>**：创建分支命令， 我们也可以使用 <strong><code>git checkout -b (branchname)</code></strong> 命令来创建新分支并立即切换到该分支下，从而在该分支中操作</li>
+<li>**<code>git checkout (branchname)</code>**：切换分支命令</li>
+<li><strong><code>git branch -delete (branchname)</code><strong>：删除分支命令,可以简化为</strong><code>git branch -d (branchname)</code></strong></li>
+</ul>
+</blockquote>
+<h4 id="git-merge"><a href="#git-merge" class="headerlink" title="git merge"></a>git merge</h4><blockquote>
+<p>命令格式：<code>git merge &lt;需要合并的分支&gt;</code></p>
+<p><code>git merge &lt;需要合并的分支&gt;</code>该命令执行后，会将<code>需要合并的分支</code>合并到<code>当前分支</code></p>
+</blockquote>
+<h4 id="Git-标签"><a href="#Git-标签" class="headerlink" title="Git 标签"></a>Git 标签</h4><blockquote>
+<p>如果你达到一个重要的阶段，并希望永远记住那个特别的提交快照，你可以使用 git tag 给它打上标签。</p>
+<p>比如说，我们想为我们的 runoob 项目发布一个”1.0”版本。 我们可以用 git tag -a v1.0 命令给最新一次提交打上（HEAD）”v1.0”的标签。</p>
+<p>-a 选项意为”创建一个带注解的标签”。 不用 -a 选项也可以执行的，但它不会记录这标签是啥时候打的，谁打的，也不会让你添加个标签的注解。 我推荐一直创建带注解的标签。不用 -a 选项也可以执行的，但它不会记录这标签是啥.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;$ git tag -a v1.0 </span><br></pre></td></tr></table></figure>
+
+<p>当你执行 git tag -a 命令时，Git 会打开你的编辑器，让你写一句标签注解，就像你给提交写注解一样。</p>
+<p>现在，注意当我们执行 git log –decorate 时，我们可以看到我们的标签了：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;*   d5e9fc2 (HEAD -&gt; master) Merge branch &#x27;change_site&#x27;</span><br><span class="line">&gt;|\  </span><br><span class="line">&gt;| * 7774248 (change_site) changed the runoob.php</span><br><span class="line">&gt;* | c68142b 修改代码</span><br><span class="line">&gt;|/  </span><br><span class="line">&gt;* c1501a2 removed test.txt、add runoob.php</span><br><span class="line">&gt;* 3e92c19 add test.txt</span><br><span class="line">&gt;* 3b58100 第一次版本提交</span><br></pre></td></tr></table></figure>
+
+<p>如果我们忘了给某个提交打标签，又将它发布了，我们可以给它追加标签。</p>
+<p>例如，假设我们发布了提交 85fc7e7(上面实例最后一行)，但是那时候忘了给它打标签。 我们现在也可以：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;$ git tag -a v0.9 85fc7e7</span><br><span class="line">&gt;$ git log --oneline --decorate --graph</span><br><span class="line">&gt;*   d5e9fc2 (HEAD -&gt; master) Merge branch &#x27;change_site&#x27;</span><br><span class="line">&gt;|\  </span><br><span class="line">&gt;| * 7774248 (change_site) changed the runoob.php</span><br><span class="line">&gt;* | c68142b 修改代码</span><br><span class="line">&gt;|/  </span><br><span class="line">&gt;* c1501a2 removed test.txt、add runoob.php</span><br><span class="line">&gt;* 3e92c19 add test.txt</span><br><span class="line">&gt;* 3b58100 (tag: v0.9) 第一次版本提交</span><br></pre></td></tr></table></figure>
+
+<p>如果我们要查看所有标签可以使用以下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;$ git tag</span><br><span class="line">&gt;v0.9</span><br><span class="line">&gt;v1.0</span><br></pre></td></tr></table></figure>
+
+<p>指定标签信息命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;git tag -a &lt;tagname&gt; -m &quot;runoob.com标签&quot;</span><br></pre></td></tr></table></figure>
+
+<p>PGP签名标签命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;git tag -s &lt;tagname&gt; -m &quot;runoob.com标签&quot;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="Git-远程仓库"><a href="#Git-远程仓库" class="headerlink" title="Git 远程仓库"></a>Git 远程仓库</h3><p>前面我们使用到的 Git 命令都是在本地执行，如果你想通过 Git 分享你的代码或者与其他开发人员合作。 你就需要将数据放到一台其他开发人员能够连接的服务器上。本本将使用 Github 作为远程仓库，来介绍Git 远程仓库的使用。</p>
+<p>下面介绍远程仓库常用的几种指令：</p>
+<ul>
+<li><code>git remote add</code>：添加远程仓库</li>
+<li><code>git remote</code>：查看当前的远程仓库</li>
+<li><code>git fetch</code>、<code>git pull</code>：提取远程仓仓库</li>
+<li><code>git push</code>：推送到远程仓库</li>
+<li><code>git remote rm</code>：删除远程仓库</li>
+</ul>
+<h4 id="git-remote-add"><a href="#git-remote-add" class="headerlink" title="git remote add"></a>git remote add</h4><blockquote>
+<p>命令格式：<code>git remote add [alias] [url]</code></p>
+<p>参数[alias]为别名， <code>[url]</code>为远程仓库的地址，如：我们可以将<a target="_blank" rel="noopener" href="https://github.com/Yhq00/Yhq00.github.io.git">https://github.com/Yhq00/Yhq00.github.io.git</a></p>
+<p>仓库添加到本地，并命名为test，操作如下：</p>
+<p><code>git remote add https://github.com/Yhq00/Yhq00.github.io.git </code></p>
+</blockquote>
+<h4 id="git-remote"><a href="#git-remote" class="headerlink" title="git remote"></a><strong>git remote</strong></h4><blockquote>
+<p>命令格式：<code>git remote</code>，该命令可以查看当前有哪些远程仓库</p>
+</blockquote>
+<h4 id="git-fetch、git-pull"><a href="#git-fetch、git-pull" class="headerlink" title="git fetch、git pull"></a>git fetch、git pull</h4><blockquote>
+<p>命令格式：<code>git fetch [alias]</code>、<code>git pull [alias]</code></p>
+<p><code>git fetch</code>、<code>git pull</code>可以提取远程仓库的数据，如果有多个远程仓库，我们可以在后面加仓库的别名，操作如下:</p>
+<p><code>git fetch [仓库别名]</code></p>
+<p><code>git fetch [仓库别名]</code></p>
+<p><code>git fetch</code>和<code>git pull</code>的区别：</p>
+<ol>
+<li><code>git fetch</code>：相当于是从远程获取最新版本到本地，不会自动合并。</li>
+<li><code>git pull</code>：相当于是从远程获取最新版本并merge到本地。</li>
+</ol>
+</blockquote>
+<h4 id="git-push-1"><a href="#git-push-1" class="headerlink" title="git push"></a>git push</h4><blockquote>
+<p>命令格式：<code>git push [alias] [branch]</code></p>
+<p>该命令会推送你的新分支与数据到某个远端仓库.</p>
+</blockquote>
+<h4 id="git-remote-rm"><a href="#git-remote-rm" class="headerlink" title="git remote rm"></a>git remote rm</h4><blockquote>
+<p>命令格式: <code>git remote rm [alias]</code></p>
+<p><code>git remote rm</code>删除远程仓库</p>
+</blockquote>
+<p>到此，基本的git操作就介绍完了。</p>
+<p>参考自:</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qtiao/article/details/97783243">Git 常用基本命令使用详细大全_git常用命令_坚强的小水滴的博客-CSDN博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/git/git-tutorial.html">菜鸟Git教程</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/14/%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84%E6%B3%A8%E9%87%8D%E7%82%B9%E5%8F%8A%E7%BD%91%E7%BB%9C%E8%B7%AF%E5%BE%84%E5%92%8C%E6%9C%AC%E5%9C%B0%E8%B7%AF%E5%BE%84/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -279,161 +537,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/04/JavaScript%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B002/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="YHQ">
-      <meta itemprop="description" content="在天堂和地域之间，没有我选择的权利，只有别人选择我的命运！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="这波又白给">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/04/JavaScript%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B002/" class="post-title-link" itemprop="url">JavaScript原型链</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-04 12:57:46" itemprop="dateCreated datePublished" datetime="2021-05-04T12:57:46+08:00">2021-05-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-03-18 21:41:35" itemprop="dateModified" datetime="2023-03-18T21:41:35+08:00">2023-03-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">Web前端</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/05/04/JavaScript%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B002/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/05/04/JavaScript%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B002/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><strong>JavaScript原型链</strong></p>
-<blockquote>
-<p>要搞清楚原型链，我们首先了解什么是<code>原型</code>？每个函数都有<code>prototype</code>属性，我们称之为<code>原型</code>,又因为这个属性的值是一个对象，所以我们也称为<code>原型对象</code>。</p>
-<p>那么什么是<code>对象</code>呢？</p>
-<p>这里我们要了解在JavaScript中对象是一种引用数据类型。我们可以通过很多种方式来创建一个对象。我们常用构造函数的方式来创建一个对象：</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//构造函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">People</span>(<span class="params">name,age,sex</span>)&#123;</span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">name</span> = name;</span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">age</span> = age;</span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">sex</span> = sex;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//生成实列</span></span><br><span class="line"><span class="keyword">const</span> p = <span class="keyword">new</span> <span class="title class_">People</span>(<span class="string">&#x27;小明&#x27;</span>，<span class="number">16</span>,<span class="string">&#x27;男&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>  那么，函数与对象的关系是怎么样的呢？</p>
-<ul>
-<li>函数是对象，对象都是通过函数创建的。</li>
-<li>函数与对象并不是简单的包含与被包含的关系。</li>
-</ul>
-</blockquote>
-<blockquote>
-<p>在我们上面创建的对象中，通过定义常量实例化后，在原来<code>构造函数</code>中通过<code>this</code>赋值的方法或者属性，已经在实例化后成为了每个实例的<code>实例属性</code>和<code>实例方法</code>，无法共享公共属性和方法。所以设计出了一个<code>原型对象</code>，来存储这个构造函数的公共属性及方法。</p>
-</blockquote>
-<blockquote>
-<p>我们再下面一段代码了加深一下理解：</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 构造函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Preson</span>(<span class="params">name, age,sex</span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">name</span> = name;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">age</span> = age;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">sex</span> = sex;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 所有实例共享的公共方法</span></span><br><span class="line"><span class="title class_">Preson</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">say</span> = <span class="keyword">function</span> (<span class="params">word</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`<span class="subst">$&#123;<span class="variable language_">this</span>.name&#125;</span>说：<span class="subst">$&#123;word&#125;</span>`</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> p1 = <span class="keyword">new</span> <span class="title class_">Preson</span>(<span class="string">&#x27;张三&#x27;</span>, <span class="number">18</span>,<span class="string">&#x27;男&#x27;</span>); <span class="comment">// 创建一个Person实例对象</span></span><br><span class="line">p1.<span class="title function_">hasOwnProperty</span>(<span class="string">&#x27;say&#x27;</span>) <span class="comment">// false 说明不是定义在其本身上的</span></span><br><span class="line">p1.<span class="title function_">say</span>(<span class="string">&#x27;hello world&#x27;</span>); <span class="comment">// 调用公共方法 打印：张三说：hello world</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>可以看到我们实例对象实例<code>p1</code>调用到<code>Person</code>这个<code>构造函数</code>的<code>原型对象</code>上的say()方法。但是为什么呢？明明只有在<code>构造函数</code>内部通过<code>this</code>来赋值的属性或者方法才会被实例所继承，为什么在<code>构造函数</code>的<code>原型对象</code>上定义的<code>say</code>方法也能通过实例来调用到呢？这里就引出了<code>原型链</code>这个概念。</p>
-</blockquote>
-<blockquote>
-<p>实际上<code>原型对象</code>中存在的<code>构造函数</code>指向了我们function创建的对象。并且每个对象都有一个<code>__proto__</code>属性，这个属性会指向<code>实例对象</code>的<code>构造函数</code>的<code>原型对象</code>，这样使得彼此之间存在一定的指向关系，能够使每个<code>实列化对象</code>能够使用<code>构造函数</code>的<code>原型对象</code>的方法。</p>
-</blockquote>
-<blockquote>
-<p>而这种指向关系，我们就称之为原型链。图解如下：</p>
-</blockquote>
-<p><img src="/./img/yxl.png" alt="11"></p>
-<p>​            </p>
-<p><img src="/./img/11.png" alt="11"></p>
-<blockquote>
-<p>我们可以看到，它的<code>__proto__</code>属性指向了一个<code>function Function</code>的<code>原型对象</code>，该<code>原型对象</code>为JS中所有函数的<code>原型对象</code>，而其<code>__proto__</code>属性也还是指向了<code>function Object</code>的<code>原型对象</code>，所以验证了<code>原型链</code>的尽头为<code>null</code>，这一说法。</p>
-</blockquote>
-<blockquote>
-<p>在开发的时候，要注意不要通过<code>实例对象</code>去改变其<code>构造函数</code>的<code>原型对象</code>，这样会对其他通过该<code>构造函数</code>生成的<code>实例对象</code>造成影响。</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//开发中需注意点</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 构造函数</span></span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">Preson</span>(<span class="params">name, age</span>) &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">name</span> = name;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">age</span> = age;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 所有实例共享的公共方法</span></span><br><span class="line">    <span class="title class_">Preson</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">say</span> = <span class="keyword">function</span> (<span class="params">word</span>) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`<span class="subst">$&#123;<span class="variable language_">this</span>.name&#125;</span>说：<span class="subst">$&#123;word&#125;</span>`</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> p1 = <span class="keyword">new</span> <span class="title class_">Preson</span>(<span class="string">&#x27;张三&#x27;</span>, <span class="number">18</span>); <span class="comment">// 创建一个Person实例对象</span></span><br><span class="line">    <span class="keyword">const</span> p2 = <span class="keyword">new</span> <span class="title class_">Preson</span>(<span class="string">&#x27;李四&#x27;</span>, <span class="number">20</span>); <span class="comment">// 新创建一个Proson实例对象</span></span><br><span class="line">    p1.<span class="title function_">say</span>(<span class="string">&#x27;hello world&#x27;</span>); <span class="comment">// 调用公共方法</span></span><br><span class="line">    p1.<span class="title function_">hasOwnProperty</span>(<span class="string">&#x27;say&#x27;</span>) <span class="comment">// false 说明不是定义在其本身上的</span></span><br><span class="line">    p1.<span class="property">__proto__</span>.<span class="property">do</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;往原型对象中添加方法&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    p2.<span class="title function_">do</span>(); <span class="comment">// 打印出了-往原型对象中添加方法</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<p><strong>原型链的尽头</strong></p>
-<hr>
-<blockquote>
-<p>我们可以看到，<code>实例对象</code>的<code>__proto__</code>属性指向了一个<code>构造函数</code>的<code>原型对象</code>，该<code>构造函数的原型对象</code>的<code>_proto_</code>属性指向了<code>Object</code>的<code>原型对象</code>，而其<code>Object的原型对象</code>的<code>_proto_</code>属性指向了null，所以验证了<code>原型链</code>的尽头为<code>null</code>，这一说法。</p>
-</blockquote>
-<p><img src="/./img/12.png" alt="11"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -501,7 +608,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -573,13 +680,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">31k</span>
+    <span title="站点总字数">35k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">28 分钟</span>
+    <span title="站点阅读时长">32 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
