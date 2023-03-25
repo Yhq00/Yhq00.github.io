@@ -172,6 +172,290 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/18/JavaScript%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D%E8%AE%B2%E8%A7%A3%E8%AF%A6%E7%BB%86%E7%89%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YHQ">
+      <meta itemprop="description" content="在天堂和地域之间，没有我选择的权利，只有别人选择我的命运！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="这波又白给">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/03/18/JavaScript%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D%E8%AE%B2%E8%A7%A3%E8%AF%A6%E7%BB%86%E7%89%88/" class="post-title-link" itemprop="url">JavaScript数组去重讲解详细版</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-03-18 20:13:33" itemprop="dateCreated datePublished" datetime="2023-03-18T20:13:33+08:00">2023-03-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-19 09:00:15" itemprop="dateModified" datetime="2023-03-19T09:00:15+08:00">2023-03-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">Web前端</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2023/03/18/JavaScript%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D%E8%AE%B2%E8%A7%A3%E8%AF%A6%E7%BB%86%E7%89%88/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/03/18/JavaScript%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D%E8%AE%B2%E8%A7%A3%E8%AF%A6%E7%BB%86%E7%89%88/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>11k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>10 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="JavaScript数组去重讲解详细"><a href="#JavaScript数组去重讲解详细" class="headerlink" title="JavaScript数组去重讲解详细"></a><strong>JavaScript数组去重讲解详细</strong></h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h2><blockquote>
+<p><strong>博主也是刚刚开始水面试题才去了解JavaScript,并没有系统地去学习过JavaScript，如果博客或者其他博文有哪里不正确，不足的地方，欢迎各位指正、补充。话不多说，其实方法都一样（我就是加以自己的理解,也不知道对不对）例子均来自<a target="_blank" rel="noopener" href="https://www.nowcoder.com/issue/tutorial?tutorialId=96&uuid=24304825a0c04ea9a53cdb09cb664834">牛客面试题</a>。</strong></p>
+</blockquote>
+<h2 id="1-利用ES6-Set去重（ES6中最常用）"><a href="#1-利用ES6-Set去重（ES6中最常用）" class="headerlink" title="1. 利用ES6 Set去重（ES6中最常用）"></a><strong>1. 利用ES6 Set去重（ES6中最常用）</strong></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">unique</span> (arr) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="title class_">Array</span>.<span class="title function_">from</span>(<span class="keyword">new</span> <span class="title class_">Set</span>(arr))</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">1</span>,<span class="string">&#x27;true&#x27;</span>,<span class="string">&#x27;true&#x27;</span>,<span class="literal">true</span>,<span class="literal">true</span>,<span class="number">15</span>,<span class="number">15</span>,<span class="literal">false</span>,<span class="literal">false</span>, <span class="literal">undefined</span>,<span class="literal">undefined</span>, <span class="literal">null</span>,<span class="literal">null</span>, <span class="title class_">NaN</span>, <span class="title class_">NaN</span>,<span class="string">&#x27;NaN&#x27;</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;a&#x27;</span>,&#123;&#125;,&#123;&#125;];</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">unique</span>(arr))</span><br><span class="line"> <span class="comment">//[1, &quot;true&quot;, true, 15, false, undefined, null, NaN, &quot;NaN&quot;, 0, &quot;a&quot;, &#123;&#125;, &#123;&#125;]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a><strong>解释</strong></h3><blockquote>
+<p><strong>这是使用了ES6中新增的<code>Array.from(</code>)和<code>Set()</code>来进行去重。</strong></p>
+<ol>
+<li><strong>定义了一个函数<code>unique</code>，该函数接受一个数组作为参数。</strong></li>
+<li><strong>使用<code>Set</code>数据结构来去重，将数组转为Set结构，再将Set结构转回数组。</strong></li>
+<li><strong>返回去重后的数组。</strong></li>
+</ol>
+<ul>
+<li><strong><code>Array.from()</code> 方法用于将类数<code>组对象( array-like object )</code> 和<code>可遍历对象( iterable object ) </code>转化为一个新的数组实例。</strong></li>
+<li><strong><code>Set() </code>是ES6新增的数据结构，用于存储唯一的值，不允许重复。它类似于数组，但是成员的值都是唯一的。</strong></li>
+</ul>
+<p><strong>因此，首先将输入的数组转化为一个<code>Set</code>数据结构（利用Set可以去除重复项），然后再将<code>Set</code>数据结构转化为数组返回给用户。</strong></p>
+<p><strong>在这个例子中，输入的数组<code>arr</code>包含了不同数据类型的元素，包括数字、字符串、布尔值、undefined、null、以及对象等。其中NaN存在特别的问题，<code>Set()</code> 中的<code>NaN值</code>可以去重，但是两个NaN之间不相等，因此去重的结果中只会保留一个NaN。</strong></p>
+<p><strong>不考虑兼容性，这种去重的方法代码最少。这种方法还无法去掉“{}”空对象，后面的高阶方法会添加去掉重复“{}”的方法。</strong></p>
+</blockquote>
+<h2 id="2-利用for嵌套for，然后splice去重（ES5中最常用）"><a href="#2-利用for嵌套for，然后splice去重（ES5中最常用）" class="headerlink" title="2. 利用for嵌套for，然后splice去重（ES5中最常用）"></a><strong>2. 利用for嵌套for，然后splice去重（ES5中最常用）</strong></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">unique</span>(<span class="params">arr</span>)&#123;            </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;arr.<span class="property">length</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">var</span> j=i+<span class="number">1</span>; j&lt;arr.<span class="property">length</span>; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(arr[i]==arr[j])&#123;         <span class="comment">//第一个等同于第二个，splice方法删除第二个</span></span><br><span class="line">                    arr.<span class="title function_">splice</span>(j,<span class="number">1</span>);</span><br><span class="line">                    j--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">1</span>,<span class="string">&#x27;true&#x27;</span>,<span class="string">&#x27;true&#x27;</span>,<span class="literal">true</span>,<span class="literal">true</span>,<span class="number">15</span>,<span class="number">15</span>,<span class="literal">false</span>,<span class="literal">false</span>, <span class="literal">undefined</span>,<span class="literal">undefined</span>, <span class="literal">null</span>,<span class="literal">null</span>, <span class="title class_">NaN</span>, <span class="title class_">NaN</span>,<span class="string">&#x27;NaN&#x27;</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;a&#x27;</span>,&#123;&#125;,&#123;&#125;];</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">unique</span>(arr))</span><br><span class="line">    <span class="comment">//[1, &quot;true&quot;, 15, false, undefined, NaN, NaN, &quot;NaN&quot;, &quot;a&quot;, &#123;…&#125;, &#123;…&#125;]     //NaN和&#123;&#125;没有去重，两个null直接消失了</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="解释-1"><a href="#解释-1" class="headerlink" title="解释"></a><strong>解释</strong></h3><blockquote>
+<p><strong>采用双重循环和splice方法，双层循环，外层循环元素，内层循环时比较值。值相同时，则删去这个值。</strong></p>
+<ol>
+<li><strong>定义了一个函数<code>unique</code>，该函数接受一个数组作为参数。</strong></li>
+<li><strong>使用双重循环来遍历数组中的每一个元素，并找到数组中的重复元素。</strong></li>
+<li><strong>如果找到数组中的两个元素相同，那么就使用<code>splice</code>方法删除第二个元素，并将内层循环的计数器j减1，从而保证循环安全、完整。</strong></li>
+<li><strong>返回去重后的数组。</strong></li>
+</ol>
+<p><strong>在循环操作中，对于每一个元素，它会从它后面的元素开始逐个比较，如果发现有相同的元素，则使用splice方法将后面的元素删除，并且j自减1。因为splice方法的调用，这个嵌套的循环可能需要执行许多次，性能上会比Set方法慢一些。</strong></p>
+<p><strong>然后函数返回去重后的数组。但是这个方法存在一些问题，比如：</strong></p>
+<ul>
+<li><strong>NaN与对象一样，被认为是不同的元素类型，因此在此方法中不能移除掉数组中的所有NaN。</strong></li>
+<li><strong>原数组中有两个null，但是在去重后，这两个null却被消失了，这是因为<code>splice</code>方法在使用时，可能会引起数组索引的变更，会影响当前的循环操作。</strong></li>
+<li><strong>数组中的元素类型过于多样化时，并不容易保证去重的结果正确，比如在此例子中，两个{}对象并没有被移除，因为两个空对象之间是无法被“==”比较的。</strong></li>
+</ul>
+</blockquote>
+<h2 id="3-利用indexOf去重"><a href="#3-利用indexOf去重" class="headerlink" title="3. 利用indexOf去重"></a><strong>3. 利用indexOf去重</strong></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">unique</span>(<span class="params">arr</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="title class_">Array</span>.<span class="title function_">isArray</span>(arr)) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;type error!&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> array = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.<span class="property">length</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (array .<span class="title function_">indexOf</span>(arr[i]) === -<span class="number">1</span>) &#123;</span><br><span class="line">            array .<span class="title function_">push</span>(arr[i])</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> array;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">1</span>,<span class="string">&#x27;true&#x27;</span>,<span class="string">&#x27;true&#x27;</span>,<span class="literal">true</span>,<span class="literal">true</span>,<span class="number">15</span>,<span class="number">15</span>,<span class="literal">false</span>,<span class="literal">false</span>, <span class="literal">undefined</span>,<span class="literal">undefined</span>, <span class="literal">null</span>,<span class="literal">null</span>, <span class="title class_">NaN</span>, <span class="title class_">NaN</span>,<span class="string">&#x27;NaN&#x27;</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;a&#x27;</span>,&#123;&#125;,&#123;&#125;];</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">unique</span>(arr))</span><br><span class="line">   <span class="comment">// [1, &quot;true&quot;, true, 15, false, undefined, null, NaN, NaN, &quot;NaN&quot;, 0, &quot;a&quot;, &#123;…&#125;, &#123;…&#125;]  //NaN、&#123;&#125;没有去重</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="解释-2"><a href="#解释-2" class="headerlink" title="解释"></a><strong>解释</strong></h3><blockquote>
+<ol>
+<li><strong>定义了一个函数<code>unique</code>，该函数接受一个数组作为参数。</strong></li>
+<li><strong>检测传入的参数是否为数组，如果不是则打印出’type error’的错误信息，并结束函数的执行。</strong></li>
+<li><strong>定义了一个变量<code>array</code>，用于存储去重后的数组。</strong></li>
+<li><strong>使用for循环遍历传入的数组，取出数组中的每一个元素。</strong></li>
+<li><strong>如果<code>array</code>数组中不存在该元素，则将该元素加入array数组中。</strong></li>
+<li><strong>返回去重后的<code>array</code>数组。</strong></li>
+</ol>
+<p><strong>然后函数返回去重后的数组。但是这个方法存在一些问题，比如：</strong></p>
+<ul>
+<li><strong>与第二种方法一样，这个方法也无法正确地去重NaN和{}对象。</strong></li>
+<li><strong>该方法的执行效率不如第一个方法Fast Set（ES6新增的Set）和第二个方法while+hasOwnProperty实现的快速去重。</strong></li>
+</ul>
+</blockquote>
+<h2 id="4-利用sort"><a href="#4-利用sort" class="headerlink" title="4. 利用sort()"></a><strong>4. 利用sort()</strong></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">unique</span>(<span class="params">arr</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="title class_">Array</span>.<span class="title function_">isArray</span>(arr)) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;type error!&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    arr = arr.<span class="title function_">sort</span>()</span><br><span class="line">    <span class="keyword">var</span> arrry= [arr[<span class="number">0</span>]];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; arr.<span class="property">length</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (arr[i] !== arr[i-<span class="number">1</span>]) &#123;</span><br><span class="line">            arrry.<span class="title function_">push</span>(arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arrry;</span><br><span class="line">&#125;</span><br><span class="line">     <span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">1</span>,<span class="string">&#x27;true&#x27;</span>,<span class="string">&#x27;true&#x27;</span>,<span class="literal">true</span>,<span class="literal">true</span>,<span class="number">15</span>,<span class="number">15</span>,<span class="literal">false</span>,<span class="literal">false</span>, <span class="literal">undefined</span>,<span class="literal">undefined</span>, <span class="literal">null</span>,<span class="literal">null</span>, <span class="title class_">NaN</span>, <span class="title class_">NaN</span>,<span class="string">&#x27;NaN&#x27;</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;a&#x27;</span>,&#123;&#125;,&#123;&#125;];</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">unique</span>(arr))</span><br><span class="line"><span class="comment">// [0, 1, 15, &quot;NaN&quot;, NaN, NaN, &#123;…&#125;, &#123;…&#125;, &quot;a&quot;, false, null, true, &quot;true&quot;, undefined]      //NaN、&#123;&#125;没有去重</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="解释-3"><a href="#解释-3" class="headerlink" title="解释"></a><strong>解释</strong></h3><blockquote>
+<ol>
+<li><strong>定义了一个函数<code>unique</code>，该函数接受一个数组作为参数。</strong></li>
+<li><strong>检测传入的参数是否为数组，如果不是则打印出’type error’的错误信息，并结束函数的执行。</strong></li>
+<li><strong>对传入的数组进行排序。</strong></li>
+<li><strong>定义了两个变量<code>arrry</code>和<code>obj</code>，分别用于存储去重后的数组和存储数组元素出现次数的对象。</strong></li>
+<li><strong>将排序后的数组的第一个元素加入到<code>arrry</code>数组中。</strong></li>
+<li><strong>使用for循环遍历排序后的传入的数组，取出数组中的每一个元素。</strong></li>
+<li><strong>如果<code>arr[i]</code>和<code>arr[i-1]</code>的值不相等，那么就将该元素加入到<code>arrry</code>数组中，实现去重。</strong></li>
+<li><strong>最后返回去重后的数组<code>arrry</code>。</strong></li>
+</ol>
+<p><strong>然后函数返回去重后的数组。但是这个方法存在一些问题，比如：</strong></p>
+<ul>
+<li><strong>与前面三种方法一样，这个方法无法正确地去重包括NaN和{}对象在内的某些数据类型。在此例子中，NaN和{}对象没有被正确去重，而且它们还变得更多了（排序后相邻的NaN变成了3个，{}对象也变成了2个）。</strong></li>
+<li><strong>类型不同的数据进行排序后，得到的可能并不是想要的顺序，比如在此例子中，数字0出现在了末尾。</strong></li>
+</ul>
+</blockquote>
+<h2 id="5-利用对象的属性不能相同的特点进行去重（这种数组去重的方法有问题，不建议用，有待改进）"><a href="#5-利用对象的属性不能相同的特点进行去重（这种数组去重的方法有问题，不建议用，有待改进）" class="headerlink" title="5. 利用对象的属性不能相同的特点进行去重（这种数组去重的方法有问题，不建议用，有待改进）"></a><strong>5. 利用对象的属性不能相同的特点进行去重（这种数组去重的方法有问题，不建议用，有待改进）</strong></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">unique</span>(<span class="params">arr</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="title class_">Array</span>.<span class="title function_">isArray</span>(arr)) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;type error!&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> arrry= [];</span><br><span class="line">     <span class="keyword">var</span>  obj = &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.<span class="property">length</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!obj[arr[i]]) &#123;</span><br><span class="line">            arrry.<span class="title function_">push</span>(arr[i])</span><br><span class="line">            obj[arr[i]] = <span class="number">1</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            obj[arr[i]]++</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arrry;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">1</span>,<span class="string">&#x27;true&#x27;</span>,<span class="string">&#x27;true&#x27;</span>,<span class="literal">true</span>,<span class="literal">true</span>,<span class="number">15</span>,<span class="number">15</span>,<span class="literal">false</span>,<span class="literal">false</span>, <span class="literal">undefined</span>,<span class="literal">undefined</span>, <span class="literal">null</span>,<span class="literal">null</span>, <span class="title class_">NaN</span>, <span class="title class_">NaN</span>,<span class="string">&#x27;NaN&#x27;</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;a&#x27;</span>,&#123;&#125;,&#123;&#125;];</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">unique</span>(arr))</span><br><span class="line"><span class="comment">//[1, &quot;true&quot;, 15, false, undefined, null, NaN, 0, &quot;a&quot;, &#123;…&#125;]    //两个true直接去掉了，NaN和&#123;&#125;去重</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="解释-4"><a href="#解释-4" class="headerlink" title="解释"></a><strong>解释</strong></h3><blockquote>
+<ol>
+<li><strong>检测传入的参数是否为数组，如果不是则打印出’type error’的错误信息，并结束函数的执行。</strong></li>
+<li><strong>定义了两个变量<code>arrry</code>和<code>obj</code>，分别用于存储去重后的数组和存储数组元素出现次数的对象。</strong></li>
+<li><strong>使用for循环遍历传入的数组，取出数组中的每一个元素。</strong></li>
+<li><strong>如果<code>obj</code>对象中未出现这个元素，即该元素没有出现过，就将它加入到<code>arrry</code>数组中，并给相应的<code>obj</code>属性赋初值1表示出现了一次。</strong></li>
+<li><strong>如果<code>obj</code>对象中已经出现了该元素，那么就只将相应<code>obj</code>的属性值加1，表示该元素又出现了一次。</strong></li>
+<li><strong>最后返回去重后的数组<code>arrry</code>。</strong></li>
+</ol>
+<p><strong>然后函数返回去重后的元素数组。但是这个方法也存在一些问题，比如：</strong></p>
+<ul>
+<li><strong>与前面所有方法一样，这个方法也无法正确地去重包括NaN和{}对象在内的某些数据类型。但是在此例子中，这个方法可以正确地去除所有重复元素。</strong></li>
+<li><strong>此方法可能会改变数组中元素的顺序，因为在循环遍历数组时，对象的属性遍历顺序并不是按照数组元素的出现顺序，因此去重结果有可能不是原数组中元素的原始顺序。</strong></li>
+</ul>
+</blockquote>
+<h2 id="6-利用includes"><a href="#6-利用includes" class="headerlink" title="6. 利用includes"></a><strong>6. 利用includes</strong></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">unique</span>(<span class="params">arr</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="title class_">Array</span>.<span class="title function_">isArray</span>(arr)) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;type error!&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> array =[];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.<span class="property">length</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>( !array.<span class="title function_">includes</span>( arr[i]) ) &#123;<span class="comment">//includes 检测数组是否有某个值</span></span><br><span class="line">                    array.<span class="title function_">push</span>(arr[i]);</span><br><span class="line">              &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> array</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">1</span>,<span class="string">&#x27;true&#x27;</span>,<span class="string">&#x27;true&#x27;</span>,<span class="literal">true</span>,<span class="literal">true</span>,<span class="number">15</span>,<span class="number">15</span>,<span class="literal">false</span>,<span class="literal">false</span>, <span class="literal">undefined</span>,<span class="literal">undefined</span>, <span class="literal">null</span>,<span class="literal">null</span>, <span class="title class_">NaN</span>, <span class="title class_">NaN</span>,<span class="string">&#x27;NaN&#x27;</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;a&#x27;</span>,&#123;&#125;,&#123;&#125;];</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">unique</span>(arr))</span><br><span class="line">    <span class="comment">//[1, &quot;true&quot;, true, 15, false, undefined, null, NaN, &quot;NaN&quot;, 0, &quot;a&quot;, &#123;…&#125;, &#123;…&#125;]     //&#123;&#125;没有去重</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="解释-5"><a href="#解释-5" class="headerlink" title="解释"></a><strong>解释</strong></h3><blockquote>
+<ol>
+<li><strong>创建一个函数 <code>unique</code> 并传入一个参数 <code>arr</code>，这个参数 <code>arr</code> 是需要去重的数组。</strong></li>
+<li><strong>在函数内部，先检查传入的参数是否为数组，如果不是则打印一条类型错误的消息，并退出函数；否则继续下一步。</strong></li>
+<li><strong>创建一个新的空数组 <code>array</code>，用于存储去重后的结果。</strong></li>
+<li><strong>使用 for 循环遍历原始数组 <code>arr</code>，在遍历过程中对每个元素进行判断，如果 <code>array</code> 中不包含该元素，就将其添加到 <code>array</code> 数组中。</strong></li>
+<li><strong>遍历完成后，返回 <code>array</code> 数组，其中包含了原始数组中的所有不重复元素。</strong></li>
+<li><strong>注意，由于 <code>includes</code> 方法无法去重对象类型，所以在最终的结果中仍会保留数组中出现的对象值。</strong></li>
+</ol>
+<p><strong>然后函数返回去重后的元素数组。但是这个方法也存在一些问题，比如：</strong></p>
+<ul>
+<li><strong>与前面所有方法一样，这个方法也无法正确地去重包括{}对象在内的某些数据类型。在此例子中，两个空对象没有被正确去除。</strong></li>
+<li><strong>includes方法ES7新增，不是所有浏览器均支持这个方法。</strong></li>
+</ul>
+</blockquote>
+<h2 id="7-利用hasOwnProperty"><a href="#7-利用hasOwnProperty" class="headerlink" title="7. 利用hasOwnProperty"></a><strong>7. 利用hasOwnProperty</strong></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">unique</span>(<span class="params">arr</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line">    <span class="keyword">return</span> arr.<span class="title function_">filter</span>(<span class="keyword">function</span>(<span class="params">item, index, arr</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> obj.<span class="title function_">hasOwnProperty</span>(<span class="keyword">typeof</span> item + item) ? <span class="literal">false</span> : (obj[<span class="keyword">typeof</span> item + item] = <span class="literal">true</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">    <span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">1</span>,<span class="string">&#x27;true&#x27;</span>,<span class="string">&#x27;true&#x27;</span>,<span class="literal">true</span>,<span class="literal">true</span>,<span class="number">15</span>,<span class="number">15</span>,<span class="literal">false</span>,<span class="literal">false</span>, <span class="literal">undefined</span>,<span class="literal">undefined</span>, <span class="literal">null</span>,<span class="literal">null</span>, <span class="title class_">NaN</span>, <span class="title class_">NaN</span>,<span class="string">&#x27;NaN&#x27;</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;a&#x27;</span>,&#123;&#125;,&#123;&#125;];</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">unique</span>(arr))</span><br><span class="line"><span class="comment">//[1, &quot;true&quot;, true, 15, false, undefined, null, NaN, &quot;NaN&quot;, 0, &quot;a&quot;, &#123;…&#125;]   //所有的都去重了</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="解释-6"><a href="#解释-6" class="headerlink" title="解释"></a><strong>解释</strong></h3><blockquote>
+<ol>
+<li><strong>创建一个函数 <code>unique</code> 并传入一个参数 <code>arr</code>，这个参数 <code>arr</code> 是需要去重的数组。</strong></li>
+<li><strong>创建一个空对象 <code>obj</code>。</strong></li>
+<li><strong>使用 <code>filter</code> 函数来遍历数组。<code>filter</code> 函数对数组中所有元素执行给定的函数，返回一个新数组，该数组中的所有元素都是在测试函数中返回 true 的原始数组元素。</strong></li>
+<li><strong>在 <code>filter</code> 函数中，使用匿名函数来检查当前元素是否已经在原数组中出现。为了避免比较数据类型，使用 typeof 操作符获取其类型，并将其与元素值结合为一个字符串 <code>typeof item + item</code>。</strong></li>
+<li><strong>在每次遍历过程中，使用 <code>hasOwnProperty</code> 检查对象 <code>obj</code> 中是否已经存在当前元素。如果存在，则返回 false，不加入到结果数组中。</strong></li>
+<li><strong>如果不存在，则将当前元素添加到 <code>obj</code> 对象中，并返回 true，将其加入到新数组中。</strong></li>
+<li><strong>遍历完成后，返回已经去重的数组。</strong></li>
+</ol>
+</blockquote>
+<h2 id="8-利用filter"><a href="#8-利用filter" class="headerlink" title="8. 利用filter"></a><strong>8. 利用filter</strong></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">unique</span>(<span class="params">arr</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> arr.<span class="title function_">filter</span>(<span class="keyword">function</span>(<span class="params">item, index, arr</span>) &#123;</span><br><span class="line">    <span class="comment">//当前元素，在原始数组中的第一个索引==当前索引值，否则返回当前元素</span></span><br><span class="line">    <span class="keyword">return</span> arr.<span class="title function_">indexOf</span>(item, <span class="number">0</span>) === index;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line">    <span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">1</span>,<span class="string">&#x27;true&#x27;</span>,<span class="string">&#x27;true&#x27;</span>,<span class="literal">true</span>,<span class="literal">true</span>,<span class="number">15</span>,<span class="number">15</span>,<span class="literal">false</span>,<span class="literal">false</span>, <span class="literal">undefined</span>,<span class="literal">undefined</span>, <span class="literal">null</span>,<span class="literal">null</span>, <span class="title class_">NaN</span>, <span class="title class_">NaN</span>,<span class="string">&#x27;NaN&#x27;</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;a&#x27;</span>,&#123;&#125;,&#123;&#125;];</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">unique</span>(arr))</span><br><span class="line"><span class="comment">//[1, &quot;true&quot;, true, 15, false, undefined, null, &quot;NaN&quot;, 0, &quot;a&quot;, &#123;…&#125;, &#123;…&#125;]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="解释-7"><a href="#解释-7" class="headerlink" title="解释"></a><strong>解释</strong></h3><blockquote>
+<ol>
+<li><strong>创建一个函数 <code>unique</code> 并传入一个参数 <code>arr</code>，这个参数 <code>arr</code> 是需要去重的数组。</strong></li>
+<li><strong>使用 <code>filter</code> 函数来遍历数组。<code>filter</code> 函数对数组中所有元素执行给定的函数，返回一个新数组，该数组中的所有元素都是在测试函数中返回 true 的原始数组元素。</strong></li>
+<li><strong>在 <code>filter</code> 函数中，使用匿名函数来检查当前元素是否已经在原数组中出现。使用 <code>indexOf</code> 方法查找当前元素在原始数组中的第一个索引，如果索引值与当前索引值相等，即表示当前元素是在原始数组中第一次出现，将其添加到结果数组中。</strong></li>
+<li><strong>如果当前索引不是第一次出现，即与原始数组中其他索引值相等，则不添加到结果数组中。</strong></li>
+<li><strong>遍历完成后，返回已经去重的数组。</strong></li>
+</ol>
+<ul>
+<li><strong>此方法在遍历数组的过程中会多次调用<code> indexOf</code> 方法，又由于<code>indexOf</code>方法的时间复杂度为 O(n)，因此其效率可能不够高。</strong></li>
+<li><strong>该方法可能不适用于处理元素为对象的数组，因为对象的引用地址不同，虽然对象具有相同的类型和值，但是 <code>indexOf</code> 方法不会被认为两个不同的对象是相同的元素，因此无法对它们去重。</strong></li>
+</ul>
+</blockquote>
+<h2 id="9-利用递归去重"><a href="#9-利用递归去重" class="headerlink" title="9. 利用递归去重"></a><strong>9. 利用递归去重</strong></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">unique</span>(<span class="params">arr</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> array= arr;</span><br><span class="line">        <span class="keyword">var</span> len = array.<span class="property">length</span>;</span><br><span class="line"></span><br><span class="line">    array.<span class="title function_">sort</span>(<span class="keyword">function</span>(<span class="params">a,b</span>)&#123;   <span class="comment">//排序后更加方便去重</span></span><br><span class="line">        <span class="keyword">return</span> a - b;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">loop</span>(<span class="params">index</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(index &gt;= <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(array[index] === array[index-<span class="number">1</span>])&#123;</span><br><span class="line">                array.<span class="title function_">splice</span>(index,<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="title function_">loop</span>(index - <span class="number">1</span>);    <span class="comment">//递归loop，然后数组去重</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">loop</span>(len-<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> array;</span><br><span class="line">&#125;</span><br><span class="line"> <span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">1</span>,<span class="string">&#x27;true&#x27;</span>,<span class="string">&#x27;true&#x27;</span>,<span class="literal">true</span>,<span class="literal">true</span>,<span class="number">15</span>,<span class="number">15</span>,<span class="literal">false</span>,<span class="literal">false</span>, <span class="literal">undefined</span>,<span class="literal">undefined</span>, <span class="literal">null</span>,<span class="literal">null</span>, <span class="title class_">NaN</span>, <span class="title class_">NaN</span>,<span class="string">&#x27;NaN&#x27;</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;a&#x27;</span>,&#123;&#125;,&#123;&#125;];</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">unique</span>(arr))</span><br><span class="line"><span class="comment">//[1, &quot;a&quot;, &quot;true&quot;, true, 15, false, 1, &#123;…&#125;, null, NaN, NaN, &quot;NaN&quot;, 0, &quot;a&quot;, &#123;…&#125;, undefined]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="解释-8"><a href="#解释-8" class="headerlink" title="解释"></a><strong>解释</strong></h3><blockquote>
+<ol>
+<li><strong>创建一个函数 <code>unique</code>并传入一个参数 <code>arr</code>，这个参数 <code>arr</code> 是需要去重的数组。</strong></li>
+<li><strong>创建一个新的变量 <code>array</code> 并将其值设置为传入参数的值。</strong></li>
+<li><strong>创建一个变量 <code>len</code> 并将其赋值为 <code>array</code> 数组的长度。</strong></li>
+<li><strong>使用 <code>sort()</code> 函数对 <code>array</code> 数组进行排序。这么做是为了更方便地进行数组去重。</strong></li>
+<li><strong>函数中创建了一个名为 <code>loop</code> 的内部函数。<code>loop</code> 函数使用递归的方法遍历数组，比较前后两个元素是否相等，如果相等，则将后一个元素从数组中删除。</strong></li>
+<li><strong>调用 <code>loop(len-1)</code> 函数，开始遍历 <code>array</code> 数组。</strong></li>
+<li><strong>函数返回 <code>array</code> 数组（已经去除了重复元素）。</strong></li>
+</ol>
+</blockquote>
+<h2 id="10-利用Map数据结构去重"><a href="#10-利用Map数据结构去重" class="headerlink" title="10. 利用Map数据结构去重"></a><strong>10. 利用Map数据结构去重</strong></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">arrayNonRepeatfy</span>(<span class="params">arr</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> map = <span class="keyword">new</span> <span class="title class_">Map</span>();</span><br><span class="line">  <span class="keyword">let</span> array = <span class="keyword">new</span> <span class="title class_">Array</span>();  <span class="comment">// 数组用于返回结果</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.<span class="property">length</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(map .<span class="title function_">has</span>(arr[i])) &#123;  <span class="comment">// 如果有该key值</span></span><br><span class="line">      map .<span class="title function_">set</span>(arr[i], <span class="literal">true</span>); </span><br><span class="line">    &#125; <span class="keyword">else</span> &#123; </span><br><span class="line">      map .<span class="title function_">set</span>(arr[i], <span class="literal">false</span>);   <span class="comment">// 如果没有该key值</span></span><br><span class="line">      array .<span class="title function_">push</span>(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; </span><br><span class="line">  <span class="keyword">return</span> array ;</span><br><span class="line">&#125;</span><br><span class="line"> <span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">1</span>,<span class="string">&#x27;true&#x27;</span>,<span class="string">&#x27;true&#x27;</span>,<span class="literal">true</span>,<span class="literal">true</span>,<span class="number">15</span>,<span class="number">15</span>,<span class="literal">false</span>,<span class="literal">false</span>, <span class="literal">undefined</span>,<span class="literal">undefined</span>, <span class="literal">null</span>,<span class="literal">null</span>, <span class="title class_">NaN</span>, <span class="title class_">NaN</span>,<span class="string">&#x27;NaN&#x27;</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;a&#x27;</span>,&#123;&#125;,&#123;&#125;];</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">unique</span>(arr))</span><br><span class="line"><span class="comment">//[1, &quot;a&quot;, &quot;true&quot;, true, 15, false, 1, &#123;…&#125;, null, NaN, NaN, &quot;NaN&quot;, 0, &quot;a&quot;, &#123;…&#125;, undefined]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="解释-9"><a href="#解释-9" class="headerlink" title="解释"></a><strong>解释</strong></h3><blockquote>
+<ol>
+<li><strong>创建一个函数 <code>arrayNonRepeatfy</code> 并传入一个参数 <code>arr</code>，这个参数 <code>arr</code> 是需要去重的数组。</strong></li>
+<li><strong>创建一个新的 Map 对象 <code>map</code>，用于存储数组中的值。</strong></li>
+<li><strong>创建一个新的数组 <code>array</code>，用于存储去重后的结果。</strong></li>
+<li><strong>使用 for 循环遍历数组 <code>arr</code>。在遍历过程中，获取当前元素的值。使用 Map 的 has() 方法检查该元素是否已经存在于 Map 中。</strong></li>
+<li><strong>如果存在，将该元素对应的 Map 的 value 值设为 true。</strong></li>
+<li><strong>如果不存在，则将该元素加入到数组 <code>array</code> 中，并将 Map 的 value 值设为 false。</strong></li>
+<li><strong>遍历完成后，返回已经去重的数组 <code>array</code>。</strong></li>
+</ol>
+</blockquote>
+<h2 id="11-利用reduce-includes"><a href="#11-利用reduce-includes" class="headerlink" title="11. 利用reduce+includes"></a><strong>11. 利用reduce+includes</strong></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">unique</span>(<span class="params">arr</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> arr.<span class="title function_">reduce</span>(<span class="function">(<span class="params">prev,cur</span>) =&gt;</span> prev.<span class="title function_">includes</span>(cur) ? prev : [...prev,cur],[]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">1</span>,<span class="string">&#x27;true&#x27;</span>,<span class="string">&#x27;true&#x27;</span>,<span class="literal">true</span>,<span class="literal">true</span>,<span class="number">15</span>,<span class="number">15</span>,<span class="literal">false</span>,<span class="literal">false</span>, <span class="literal">undefined</span>,<span class="literal">undefined</span>, <span class="literal">null</span>,<span class="literal">null</span>, <span class="title class_">NaN</span>, <span class="title class_">NaN</span>,<span class="string">&#x27;NaN&#x27;</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;a&#x27;</span>,&#123;&#125;,&#123;&#125;];</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">unique</span>(arr));</span><br><span class="line"><span class="comment">// [1, &quot;true&quot;, true, 15, false, undefined, null, NaN, &quot;NaN&quot;, 0, &quot;a&quot;, &#123;…&#125;, &#123;…&#125;]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="解释-10"><a href="#解释-10" class="headerlink" title="解释"></a><strong>解释</strong></h3><blockquote>
+<ol>
+<li><strong>创建一个函数 <code>unique</code> 并传入一个参数 <code>arr</code>，这个参数 <code>arr</code> 是需要去重的数组。</strong></li>
+<li><strong>使用 <code>reduce</code> 函数来遍历数组。<code>reduce</code> 函数将数组元素传递给指定的函数，返回一个输出结果。初始值为空数组[]。</strong></li>
+<li><strong>在 <code>reduce</code> 函数中，使用箭头函数处理每个元素。如果这个元素没有在初始值数组 <code>prev</code> 中出现过，那么就将这个元素放入数组 <code>prev</code> 中，使用逗号运算符返回新数组[…prev,cur]。</strong></li>
+<li><strong>如果元素已经出现在 <code>prev</code> 数组中，那么就返回之前的 <code>prev</code> 数组，从而达到去重的目的，即 return prev。</strong></li>
+<li><strong>遍历完成后，返回已经去重的数组 <code>prev</code>。</strong></li>
+</ol>
+</blockquote>
+<h2 id="12-…new-Set-arr"><a href="#12-…new-Set-arr" class="headerlink" title="12. […new Set(arr)]"></a><strong>12. […new Set(arr)]</strong></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[...<span class="keyword">new</span> <span class="title class_">Set</span>(arr)] </span><br></pre></td></tr></table></figure>
+
+<h3 id="解释-11"><a href="#解释-11" class="headerlink" title="解释"></a><strong>解释</strong></h3><blockquote>
+<ol>
+<li><strong>在 ES6 中，Set 是一种新的数据结构，表示一组无序且唯一的值。Set 可以接收一个可迭代对象，比如数组，在迭代对象中进行去重操作。</strong></li>
+<li><strong>将数组 <code>arr</code> 传递给 Set 构造函数，它会自动去除数组中的重复项。</strong></li>
+<li><strong>使用扩展运算符<code>[...]</code>将 Set 转换成数组，从而实现去重。</strong></li>
+<li><strong>返回已经去重的数组。</strong></li>
+</ol>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/16/Git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -426,117 +710,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/14/%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84%E6%B3%A8%E9%87%8D%E7%82%B9%E5%8F%8A%E7%BD%91%E7%BB%9C%E8%B7%AF%E5%BE%84%E5%92%8C%E6%9C%AC%E5%9C%B0%E8%B7%AF%E5%BE%84/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="YHQ">
-      <meta itemprop="description" content="在天堂和地域之间，没有我选择的权利，只有别人选择我的命运！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="这波又白给">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/03/14/%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84%E6%B3%A8%E9%87%8D%E7%82%B9%E5%8F%8A%E7%BD%91%E7%BB%9C%E8%B7%AF%E5%BE%84%E5%92%8C%E6%9C%AC%E5%9C%B0%E8%B7%AF%E5%BE%84/" class="post-title-link" itemprop="url">文件路径注重点及网络路径和本地路径</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-03-14 07:59:32" itemprop="dateCreated datePublished" datetime="2023-03-14T07:59:32+08:00">2023-03-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-03-18 21:42:22" itemprop="dateModified" datetime="2023-03-18T21:42:22+08:00">2023-03-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" itemprop="url" rel="index"><span itemprop="name">问题解决</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2023/03/14/%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84%E6%B3%A8%E9%87%8D%E7%82%B9%E5%8F%8A%E7%BD%91%E7%BB%9C%E8%B7%AF%E5%BE%84%E5%92%8C%E6%9C%AC%E5%9C%B0%E8%B7%AF%E5%BE%84/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/03/14/%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84%E6%B3%A8%E9%87%8D%E7%82%B9%E5%8F%8A%E7%BD%91%E7%BB%9C%E8%B7%AF%E5%BE%84%E5%92%8C%E6%9C%AC%E5%9C%B0%E8%B7%AF%E5%BE%84/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>昨天利用hexo部署发布写好的博客时，出现了一个很奇怪的问题，用Markdown语法插入图片。使用<code>\</code>img<code>\</code>yxl.png一直出错，但是在本地利用hexo s命令查看localhost：4000端口，图片能加载，传到网络服务器上缺不可以加载，后来研究了一下原来是<code>\</code>的原因，特此记录一下。</p>
-</blockquote>
-<blockquote>
-<p>Unix使用斜杆/ 作为路径分隔符，而web应用最新使用在Unix系统上面，所以目前所有的网络地址都采用 斜杆/ 作为分隔符。<br>Windows由于使用 斜杆/ 作为DOS命令提示符的参数标志了，为了不混淆，所以采用 反斜杠\ 作为路径分隔符。所以目前windows系统上的文件浏览器都是用 反斜杠\ 作为路径分隔符。随着发展，DOS系统已经被淘汰了，命令提示符也用的很少，斜杆和反斜杠在大多数情况下可以互换，没有影响。<br>知道这个背景后，可以总结一下结论：<br>（1）浏览器地址栏网址使用 斜杆/ ;<br>（2）windows文件浏览器上使用 反斜杠\ ;<br>（3）出现在html url() 属性中的路径，指定的路径是网络路径，所以必须用 斜杆/ ;<br><code>// 如果url后面用反斜杠\，就不会显示任何背景</code><br>（4）出现在普通字符串中的路径，如果代表的是windows文件路径，则使用斜杆/和反斜杠\是一样的如果代表的是网络文件路径，则必须使用 斜杆/ ;<br><code>// 本地文件路径，/ 和 \ 是等效的</code><br><code>// 网络文件路径，一定要使用 斜杆/</code><br>（5）windows系统的地址栏能够识别单反斜杠”\“，而不能识别双反斜杠”\\“，这是系统文件系统自身的约定，路径层次使用“\”区分而不是使用“\\”来区分：<br>所以F:\\Office\\Trunk__Out\\Pro Debug\\Bin\\OfficeInfo.dll这样是不正确的。<br>而在程序中，字符串中的“\”主要是为了转义，“\”转义后被理解为“\”,“\”才能够被操作系统文件系统所理解，比如用字符串表示上述路径：“F:\Office\Trunk\__Out\Pro Debug\Bin\OfficeInfo.dll”，同理，如果想要表示“\”，可以写作“\\”。</p>
-</blockquote>
-<blockquote>
-<p>在不同系统的情况系 indows下是,linux和unix下是/ ,但在Windows中没有本质区别。<br>但是由于 \ 也是转义字符的起始字符，<br>所以，路径中的 \ 通常需要使用 \如果是 / 就不需要使用转义了<br>如C中文件操作，c:\kkk\dd.txt c:/kkk/dd.txt一样<br>“./“：代表目前所在的目录<br>“../“：代表上一层目录<br>\ 用于本地/ 用于网络连接地址</p>
-</blockquote>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/lhang55/p/7616816.html#:~:text=%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84%EF%BC%9A%2F%E5%92%8C%E7%9A%84%E5%8C%BA%E5%88%AB%20Unix%E4%BD%BF%E7%94%A8%E6%96%9C%E6%9D%86%2F%20%E4%BD%9C%E4%B8%BA%E8%B7%AF%E5%BE%84%E5%88%86%E9%9A%94%E7%AC%A6%EF%BC%8C%E8%80%8Cweb%E5%BA%94%E7%94%A8%E6%9C%80%E6%96%B0%E4%BD%BF%E7%94%A8%E5%9C%A8Unix%E7%B3%BB%E7%BB%9F%E4%B8%8A%E9%9D%A2%EF%BC%8C%E6%89%80%E4%BB%A5%E7%9B%AE%E5%89%8D%E6%89%80%E6%9C%89%E7%9A%84%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E9%83%BD%E9%87%87%E7%94%A8%20%E6%96%9C%E6%9D%86%2F%20%E4%BD%9C%E4%B8%BA%E5%88%86%E9%9A%94%E7%AC%A6%E3%80%82,Windows%E7%94%B1%E4%BA%8E%E4%BD%BF%E7%94%A8%20%E6%96%9C%E6%9D%86%2F%20%E4%BD%9C%E4%B8%BADOS%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E7%AC%A6%E7%9A%84%E5%8F%82%E6%95%B0%E6%A0%87%E5%BF%97%E4%BA%86%EF%BC%8C%E4%B8%BA%E4%BA%86%E4%B8%8D%E6%B7%B7%E6%B7%86%EF%BC%8C%E6%89%80%E4%BB%A5%E9%87%87%E7%94%A8%20%E5%8F%8D%E6%96%9C%E6%9D%A0%20%E4%BD%9C%E4%B8%BA%E8%B7%AF%E5%BE%84%E5%88%86%E9%9A%94%E7%AC%A6%E3%80%82">参考转载自：此链接</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -608,7 +781,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -680,13 +853,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">35k</span>
+    <span title="站点总字数">37k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">32 分钟</span>
+    <span title="站点阅读时长">33 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
