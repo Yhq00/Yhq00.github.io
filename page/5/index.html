@@ -172,6 +172,134 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/04/JavaScript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(01-%E7%AC%AC%E4%B8%80%E5%A4%A9%E6%8F%90%E9%97%AE%E7%9A%84%E9%97%AE%E9%A2%98)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YHQ">
+      <meta itemprop="description" content="在天堂和地域之间，没有我选择的权利，只有别人选择我的命运！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="这波又白给">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/04/JavaScript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(01-%E7%AC%AC%E4%B8%80%E5%A4%A9%E6%8F%90%E9%97%AE%E7%9A%84%E9%97%AE%E9%A2%98)/" class="post-title-link" itemprop="url">JavaScript第一天被提问的问题</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-04 12:57:46" itemprop="dateCreated datePublished" datetime="2021-05-04T12:57:46+08:00">2021-05-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-18 21:41:53" itemprop="dateModified" datetime="2023-03-18T21:41:53+08:00">2023-03-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">Web前端</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/05/04/JavaScript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(01-%E7%AC%AC%E4%B8%80%E5%A4%A9%E6%8F%90%E9%97%AE%E7%9A%84%E9%97%AE%E9%A2%98)/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/05/04/JavaScript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(01-%E7%AC%AC%E4%B8%80%E5%A4%A9%E6%8F%90%E9%97%AE%E7%9A%84%E9%97%AE%E9%A2%98)/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="JavaScript学习笔记"><a href="#JavaScript学习笔记" class="headerlink" title="JavaScript学习笔记"></a>JavaScript学习笔记</h1><h6 id="第一天"><a href="#第一天" class="headerlink" title="第一天"></a>第一天</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">JavaScript基本数据类型分为Null、Undefined、Boolean、Number、BigInt、String、2015年Symbol</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">JavaScript 数据类型</span><br><span class="line">JavaScript 中有五种可包含值的数据类型：</span><br><span class="line"></span><br><span class="line">字符串（string）</span><br><span class="line">数字（number）</span><br><span class="line">布尔（boolean）</span><br><span class="line">对象（object）</span><br><span class="line">函数（function）</span><br><span class="line">有三种对象类型：</span><br><span class="line"></span><br><span class="line">对象（Object）</span><br><span class="line">日期（Date）</span><br><span class="line">数组（Array）</span><br><span class="line">同时有两种不能包含值的数据类型：</span><br><span class="line"></span><br><span class="line">null</span><br><span class="line">undefined</span><br><span class="line"></span><br><span class="line"> Null类型只有一个值Null</span><br><span class="line"> Undefined类型只有一个值Undefined</span><br><span class="line"> Boolean类型有两个值true、false</span><br><span class="line"> Number类型表示IEE754标准的双精度64位二进制格式的值(存储 2^-1074（Number.MIN_VALUE）和 2^1024（Number.MAX_VALUE）之</span><br><span class="line"> 的正浮点数，以及 -2^-1074 和 -2^1024 之间的负浮点数，但是它仅能安全地存储在 -(2^53 − 1)（Number.MIN_SAFE_INTEGER）     到2^53 − 1</span><br><span class="line"> BigInt类型在 Javascript 中是一个数字的原始值，它可以表示任意大小的整数。使用 BigInt，你可以安全地存储和操作巨大的整数，甚至   超过 Number 的安全整数限制</span><br><span class="line"> String类型表示文本数据</span><br><span class="line"> Symbol是唯一并且不可变的原始值并且可以用来作为对象属性的键（如下）。在某些程序语言当中，Symbol 也被称作“原子类型”（atom）。     symbol 的目的是去创建一个唯一属性键，保证不会与其他代码中的键产生冲突。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">问题：Js操作数组有哪几种方法？</span><br><span class="line">答案：</span><br><span class="line">length属性。主要用于获得数组内元素的个数，常用于for循环或一些判断语句中取得数组的长度。</span><br><span class="line">concat()方法。用于把两个或多个数组合并成一个数组，数组的索引会按照合并数组的顺序重新排序</span><br><span class="line">join()方法。主要用于将数组内的元素使用字符拼接成一个字符串，不传拼接字符参数，默认使用逗号。</span><br><span class="line">pop()方法。删除数组中最后一个元素，与之相反的方法是push()，向数组的末尾添加一个或多个元素。</span><br><span class="line">reverse()方法。这个方法主要用于反转数组元素，索引数组 reverse后会重新排序。</span><br><span class="line">slice()方法。用于从数组中提取所需要的元素，传入的参数是提取元素开始位置，例如slice(3)，则从下标为3的元素开始提取。</span><br><span class="line">splice()方法。splice()方法需要传入三个参数，第一个参数是索引开始的位置，第二个参数是删除元素的数量，第三个参数是在开始索引的位置插入的元素（可以为多个元素）。</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./img/1.jpg" alt="1"></p>
+<p><img src="/./img/2.webp" alt="2"></p>
+<p><img src="/./img/3.webp" alt="3"></p>
+<p><img src="/./img/4.webp" alt="4"></p>
+<p><img src="/./img/5.webp" alt="5"></p>
+<p><img src="/./img/6.webp" alt="6"></p>
+<p><img src="/./img/7.webp" alt="7"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">问题3：Js输出一个数组内所有元素的方法？</span><br><span class="line">答案：</span><br><span class="line">1、使用“console.log(数组名)”输出数组；2、利用for或for in语句循环输出数组；3、利用forEach()遍历数组，输出数组元素；4、利用map()遍历数组，输出数组元素。</span><br></pre></td></tr></table></figure>
+
+<p><strong>方法1：直接利用console.log(数组名)</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">5</span>,<span class="number">10</span>,<span class="number">20</span>];</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img.php.cn/upload/image/374/314/958/1630567297409318.png" alt="1.png"></p>
+<p><strong>方法2：利用for/for in循环输出数组</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">5</span>,<span class="number">10</span>,<span class="number">20</span>];</span><br><span class="line"><span class="keyword">for</span> ( <span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.<span class="property">length</span>;i++)&#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">5</span>,<span class="number">10</span>,<span class="number">20</span>];</span><br><span class="line"><span class="keyword">for</span> ( <span class="keyword">var</span> key <span class="keyword">in</span> arr)&#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr[key]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img.php.cn/upload/image/290/588/412/1630567420767090.png" alt="2.png"></p>
+<p><strong>方法4：map()方遍历数组，循环输出数组</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">5</span>,<span class="number">10</span>,<span class="number">20</span>];</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">f</span>(<span class="params">value</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a=arr.<span class="title function_">map</span>(f);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img.php.cn/upload/image/192/435/414/1630567596204506.png" alt="4.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/04/%E7%AC%AC%E4%B8%80%E8%AF%BE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -328,108 +456,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/04/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="YHQ">
-      <meta itemprop="description" content="在天堂和地域之间，没有我选择的权利，只有别人选择我的命运！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="这波又白给">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/04/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-04 12:07:47" itemprop="dateCreated datePublished" datetime="2021-05-04T12:07:47+08:00">2021-05-04</time>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/05/04/hello-world/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/05/04/hello-world/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>367</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -497,20 +527,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -569,13 +599,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">37k</span>
+    <span title="站点总字数">51k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">33 分钟</span>
+    <span title="站点阅读时长">46 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
